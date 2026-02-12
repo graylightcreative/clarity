@@ -1,0 +1,4017 @@
+{
+  "project": {
+    "name": "The Mixing Mentor",
+    "description": "A VST3 plugin that acts as a virtual mentor for mixing, analyzing tracks against AI-learned targets and teaching users how to fix them using DAW stock plugins",
+    "version": "0.1.0",
+    "status": "concept",
+    "targetDAW": "Studio One Pro+ 6.5+",
+    "targetGenres": ["Metalcore", "Hard Rock", "Pop Punk"],
+    "createdDate": "2025-02-05"
+  },
+  "phases": [
+    {
+      "id": "PHASE_0",
+      "name": "Project Setup & Infrastructure",
+      "description": "Initialize project structure, version control, build system, and development environment",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 1,
+      "tasks": [
+        {
+          "id": "SETUP_001",
+          "name": "Initialize Git Repository",
+          "description": "Create git repo with branching strategy (main, dev, feature/* branches)",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SETUP_001_A",
+              "name": "Create main branch with initial commit",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_001_B",
+              "name": "Create dev branch",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_001_C",
+              "name": "Setup .gitignore for C++ and Python projects",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_001_D",
+              "name": "Create branch protection rules",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SETUP_002",
+          "name": "Setup Folder Structure",
+          "description": "Create project directory structure matching tech stack requirements",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SETUP_002_A",
+              "name": "Create /Assets directory (Models, Fonts, Resources)",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_002_B",
+              "name": "Create /Source directory (C++ plugin code)",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_002_C",
+              "name": "Create /Source/Core, /Source/DSP, /Source/GUI subdirectories",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_002_D",
+              "name": "Create /Python_Training directory with /data subfolder",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_002_E",
+              "name": "Create /Tests directory structure",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_002_F",
+              "name": "Create /CI directory for CI/CD scripts",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SETUP_003",
+          "name": "Setup CMake Build System",
+          "description": "Configure CMake 3.25+ for cross-platform C++ and ONNX Runtime linking",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SETUP_003_A",
+              "name": "Create root CMakeLists.txt with JUCE configuration",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_003_B",
+              "name": "Configure ONNX Runtime linking for Windows/macOS",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_003_C",
+              "name": "Setup compiler flags for C++20",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_003_D",
+              "name": "Create build output directory configuration",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SETUP_004",
+          "name": "Setup Python Development Environment",
+          "description": "Configure Python 3.10+ with training dependencies",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SETUP_004_A",
+              "name": "Create requirements.txt with librosa, scikit-learn, onnx, numpy, pandas",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_004_B",
+              "name": "Create Python virtual environment setup script",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_004_C",
+              "name": "Create Python linting/formatting config (black, pylint)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SETUP_005",
+          "name": "Setup Documentation & Wiki",
+          "description": "Consolidate existing docs and create development guide",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SETUP_005_A",
+              "name": "Create DEVELOPMENT.md with environment setup instructions",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_005_B",
+              "name": "Create ARCHITECTURE.md with system overview",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_005_C",
+              "name": "Create API.md for core classes/interfaces",
+              "status": "pending"
+            },
+            {
+              "id": "SETUP_005_D",
+              "name": "Create TESTING.md with test strategy",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_1",
+      "name": "The Brain (Python AI Model)",
+      "description": "Create training dataset, feature extraction pipeline, and export ONNX model",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 3,
+      "tasks": [
+        {
+          "id": "BRAIN_001",
+          "name": "Dataset Generation Strategy",
+          "description": "Define Suno AI prompts and recording workflow for Good/Bad audio pairs",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "BRAIN_001_A",
+              "name": "Define Gold Set prompts for Metalcore (Kick, Snare, Bass)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_001_B",
+              "name": "Define Flawed Set prompts with specific flaw types",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_001_C",
+              "name": "Create metadata schema for labeling (class, genre, instrument, flaw_type)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_001_D",
+              "name": "Document Suno generation workflow",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "BRAIN_002",
+          "name": "Generate Training Dataset",
+          "description": "Generate 100+ Suno AI tracks for Good/Flawed pairs across genres",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "BRAIN_002_A",
+              "name": "Generate 30 Gold Metalcore Kick drums",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_002_B",
+              "name": "Generate 30 Flawed Metalcore Kick drums (various flaw types)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_002_C",
+              "name": "Generate 20 Gold Snare drums",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_002_D",
+              "name": "Generate 20 Flawed Snare drums",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_002_E",
+              "name": "Generate 15 Gold Bass guitar tracks",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_002_F",
+              "name": "Generate 15 Flawed Bass guitar tracks",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_002_G",
+              "name": "Export stems and organize in /Python_Training/data",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_002_H",
+              "name": "Create metadata CSV with labels",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "BRAIN_003",
+          "name": "Feature Extraction Pipeline",
+          "description": "Implement librosa-based feature extraction for 64-float fingerprint",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "BRAIN_003_A",
+              "name": "Create feature_extractor.py module",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_003_B",
+              "name": "Implement spectral_energy (32-band 1/3 octave analysis)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_003_C",
+              "name": "Implement spectral_centroid extraction",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_003_D",
+              "name": "Implement spectral_flatness and crest_factor",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_003_E",
+              "name": "Implement zero_crossing_rate and MFCC extraction",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_003_F",
+              "name": "Implement delta MFCC calculation",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_003_G",
+              "name": "Create batch processing function for entire dataset",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_003_H",
+              "name": "Unit tests for feature extraction",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "BRAIN_004",
+          "name": "Data Preprocessing",
+          "description": "Normalize audio, create training labels, prepare datasets",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "BRAIN_004_A",
+              "name": "Implement loudness normalization to -18 LUFS",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_004_B",
+              "name": "Create label generation logic (Good = 0 correction, Bad = difference vector)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_004_C",
+              "name": "Implement train/test split (80/20)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_004_D",
+              "name": "Create data validation checks (missing values, outliers)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_004_E",
+              "name": "Export preprocessed data to pickle/CSV",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "BRAIN_005",
+          "name": "Model Architecture & Training",
+          "description": "Implement Random Forest/MLP Regressor with hyperparameter tuning",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "BRAIN_005_A",
+              "name": "Create model_trainer.py module",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_005_B",
+              "name": "Implement Random Forest Regressor baseline",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_005_C",
+              "name": "Implement MLP Regressor with quantization",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_005_D",
+              "name": "Implement cross-validation and hyperparameter search",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_005_E",
+              "name": "Train Metalcore Kick model (brain_metalcore_kick_v1.pkl)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_005_F",
+              "name": "Train Metalcore Snare model",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_005_G",
+              "name": "Train Metalcore Bass model",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_005_H",
+              "name": "Log model performance metrics (R², MAE, inference time)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "BRAIN_006",
+          "name": "ONNX Export & Optimization",
+          "description": "Convert trained models to ONNX format with inference time verification",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "BRAIN_006_A",
+              "name": "Create onnx_exporter.py module",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_006_B",
+              "name": "Export Random Forest models to ONNX",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_006_C",
+              "name": "Export MLP models with quantization to ONNX",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_006_D",
+              "name": "Create ONNX validation script (verify output shapes/values)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_006_E",
+              "name": "Measure inference latency on CPU (target < 2ms)",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_006_F",
+              "name": "Save models to /Assets/Models/ directory",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "BRAIN_007",
+          "name": "Python Testing & Validation",
+          "description": "Unit tests, integration tests, and model validation",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "BRAIN_007_A",
+              "name": "Create pytest test suite structure",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_007_B",
+              "name": "Test feature extraction with known audio samples",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_007_C",
+              "name": "Test preprocessing pipeline end-to-end",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_007_D",
+              "name": "Test model training convergence",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_007_E",
+              "name": "Test ONNX inference matches scikit-learn output",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_007_F",
+              "name": "Test ONNX model with random input vectors",
+              "status": "pending"
+            },
+            {
+              "id": "BRAIN_007_G",
+              "name": "Document test coverage and results",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_2",
+      "name": "The Shell (C++/JUCE Plugin Architecture)",
+      "description": "Build core plugin framework, singleton system, and inter-instance communication",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 4,
+      "tasks": [
+        {
+          "id": "SHELL_001",
+          "name": "Create Basic JUCE Plugin Project",
+          "description": "Generate JUCE project with VST3 target, basic processor and editor",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_001_A",
+              "name": "Use Projucer to generate initial VST3 plugin template",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_001_B",
+              "name": "Configure CMakeLists.txt for JUCE integration",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_001_C",
+              "name": "Verify successful compilation (empty plugin)",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_001_D",
+              "name": "Test plugin loads in Studio One (AU/VST3)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_002",
+          "name": "Implement Data Structures",
+          "description": "Create TrackProfile, AudioFingerprint, and GenreTarget structs",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_002_A",
+              "name": "Create Source/Core/DataStructures.h",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_002_B",
+              "name": "Define TrackProfile struct with ID, name, instrument, genre fields",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_002_C",
+              "name": "Define AudioFingerprint struct (spectral, dynamics, issues fields)",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_002_D",
+              "name": "Define GenreTargetProfile struct with ideal spectrum/dynamics",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_002_E",
+              "name": "Define InstrumentType and GenreTarget enums",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_002_F",
+              "name": "Define MaskingReport struct",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_002_G",
+              "name": "Unit tests for struct serialization/deserialization",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_003",
+          "name": "Implement Session Manager (Singleton)",
+          "description": "Create thread-safe global state manager for inter-instance communication",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_003_A",
+              "name": "Create Source/Core/SessionManager.h interface",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_B",
+              "name": "Implement getInstance() static accessor",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_C",
+              "name": "Implement registerTrack() method with thread safety",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_D",
+              "name": "Implement updateFingerprint() method",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_E",
+              "name": "Implement removeTrack() method",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_F",
+              "name": "Implement getTracksByInstrument() query method",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_G",
+              "name": "Implement hasFoundation() check (Kick+Snare exist)",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_H",
+              "name": "Create Source/Core/SessionManager.cpp implementation",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_003_I",
+              "name": "Unit tests for thread safety with concurrent access",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_004",
+          "name": "Implement Track Profile System",
+          "description": "Create per-instance track representation and lifecycle management",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_004_A",
+              "name": "Create Source/Core/TrackProfiler.h",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_004_B",
+              "name": "Implement TrackProfiler constructor with UUID generation",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_004_C",
+              "name": "Implement setInstrument() and setGenre() methods",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_004_D",
+              "name": "Implement fingerprint update/retrieval methods",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_004_E",
+              "name": "Implement getRelatedTracks() for accumulator logic",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_004_F",
+              "name": "Create Source/Core/TrackProfiler.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_004_G",
+              "name": "Unit tests for track lifecycle",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_005",
+          "name": "Implement Audio Processing Pipeline",
+          "description": "Create processor class with FFT analysis and fingerprinting",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_005_A",
+              "name": "Create Source/Core/PluginProcessor.h with IAudioProcessor interface",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_005_B",
+              "name": "Implement processBlock() method stub",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_005_C",
+              "name": "Implement getStateInformation()/setStateInformation() for serialization",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_005_D",
+              "name": "Create Source/Core/PluginProcessor.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_005_E",
+              "name": "Unit tests for parameter state management",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_006",
+          "name": "Implement Feature Extraction (C++)",
+          "description": "Port Python feature extraction to C++ for real-time analysis",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_006_A",
+              "name": "Create Source/DSP/FeatureExtractor.h interface",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_006_B",
+              "name": "Implement FFT-based spectral energy extraction (32 bands)",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_006_C",
+              "name": "Implement spectral centroid calculation",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_006_D",
+              "name": "Implement crest factor (peak-to-RMS) calculation",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_006_E",
+              "name": "Implement MFCC extraction using library (kissfft or juce::dsp)",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_006_F",
+              "name": "Implement loudness metering (LUFS calculation)",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_006_G",
+              "name": "Create Source/DSP/FeatureExtractor.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_006_H",
+              "name": "Unit tests comparing C++ output with Python librosa",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_007",
+          "name": "Implement State Management (Active/Passive)",
+          "description": "Create state machine for CPU resource management",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_007_A",
+              "name": "Create Source/Core/StateManager.h with state enum",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_007_B",
+              "name": "Define Active (GUI open), Passive (GUI closed), RescanState",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_007_C",
+              "name": "Implement state transition logic with guards",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_007_D",
+              "name": "Implement Wake-on-Edit trigger logic",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_007_E",
+              "name": "Create Source/Core/StateManager.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_007_F",
+              "name": "Unit tests for state transitions",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_008",
+          "name": "Integrate ONNX Runtime",
+          "description": "Link ONNX Runtime, implement inference wrapper",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_008_A",
+              "name": "Download and configure ONNX Runtime C++ SDK",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_008_B",
+              "name": "Add ONNX Runtime to CMakeLists.txt",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_008_C",
+              "name": "Create Source/Core/ONNXInference.h wrapper interface",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_008_D",
+              "name": "Implement model loading from /Assets/Models",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_008_E",
+              "name": "Implement inference execution with 64-float input vector",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_008_F",
+              "name": "Create Source/Core/ONNXInference.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_008_G",
+              "name": "Unit tests for inference with known model outputs",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SHELL_009",
+          "name": "C++ Testing & Validation",
+          "description": "Unit tests, integration tests, build verification",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SHELL_009_A",
+              "name": "Setup Catch2 or Google Test framework",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_009_B",
+              "name": "Create test directory structure",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_009_C",
+              "name": "Test data structure serialization",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_009_D",
+              "name": "Test SessionManager thread safety",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_009_E",
+              "name": "Test feature extraction accuracy",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_009_F",
+              "name": "Test ONNX inference integration",
+              "status": "pending"
+            },
+            {
+              "id": "SHELL_009_G",
+              "name": "Verify plugin compiles on Windows (MSVC) and macOS (Clang)",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_3",
+      "name": "The Brain Integration (AI Inference in C++)",
+      "description": "Integrate ONNX models into plugin, implement analysis engine, decision tree logic",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 3,
+      "tasks": [
+        {
+          "id": "INTEG_001",
+          "name": "Create Analysis Engine",
+          "description": "Implement core decision tree: identify -> target -> analyze -> compare -> display",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INTEG_001_A",
+              "name": "Create Source/DSP/AnalysisEngine.h interface",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_001_B",
+              "name": "Implement analyze() method receiving raw audio buffer",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_001_C",
+              "name": "Implement instrument identification logic",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_001_D",
+              "name": "Implement target loading from GenreTargetProfile",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_001_E",
+              "name": "Implement local comparison (current vs target spectrum)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_001_F",
+              "name": "Implement global comparison (masking checks against other tracks)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_001_G",
+              "name": "Implement ONNX model inference call",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_001_H",
+              "name": "Create Source/DSP/AnalysisEngine.cpp",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INTEG_002",
+          "name": "Implement Masking Detection",
+          "description": "Create frequency collision detection between tracks",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INTEG_002_A",
+              "name": "Create Source/DSP/MaskingDetector.h",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_002_B",
+              "name": "Implement spectral overlap calculation",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_002_C",
+              "name": "Implement frequency-specific masking thresholds",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_002_D",
+              "name": "Implement sidechain detection (bass ducking checks)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_002_E",
+              "name": "Create Source/DSP/MaskingDetector.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_002_F",
+              "name": "Unit tests with known frequency pairs",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INTEG_003",
+          "name": "Implement Accumulator Logic",
+          "description": "Create layer-based mixing hierarchy (Drums -> Bass -> Guitars -> Vocals)",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INTEG_003_A",
+              "name": "Create Source/DSP/Accumulator.h with layer enum",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_003_B",
+              "name": "Define Foundation, Groove, Body, Soul layers",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_003_C",
+              "name": "Implement layer validation (e.g., warn if vocals before drums)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_003_D",
+              "name": "Implement layer-specific comparison logic",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_003_E",
+              "name": "Create Source/DSP/Accumulator.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_003_F",
+              "name": "Unit tests for layer hierarchy validation",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INTEG_004",
+          "name": "Create Genre Target Database",
+          "description": "Load Metalcore (and future genre) target profiles",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INTEG_004_A",
+              "name": "Create Source/Core/GenreDatabase.h",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_004_B",
+              "name": "Create Assets/GenreTargets/metalcore_targets.json",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_004_C",
+              "name": "Define Metalcore Kick target (spectrum, dynamics, attack/release)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_004_D",
+              "name": "Define Metalcore Snare target",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_004_E",
+              "name": "Define Metalcore Bass target",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_004_F",
+              "name": "Implement JSON loader in GenreDatabase.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_004_G",
+              "name": "Unit tests for genre data loading",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INTEG_005",
+          "name": "Implement Advice Generation",
+          "description": "Create prioritized advice text and correction vectors",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INTEG_005_A",
+              "name": "Create Source/DSP/AdviceGenerator.h",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_005_B",
+              "name": "Create advice template system (Mad Libs style)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_005_C",
+              "name": "Implement EQ cut advice generation",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_005_D",
+              "name": "Implement compression advice generation",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_005_E",
+              "name": "Implement masking/sidechain advice",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_005_F",
+              "name": "Implement priority sorting (critical -> major -> minor)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_005_G",
+              "name": "Create Source/DSP/AdviceGenerator.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_005_H",
+              "name": "Unit tests for advice priority sorting",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INTEG_006",
+          "name": "Integrate ONNX with Analysis Pipeline",
+          "description": "Connect inference to feature extraction and advice generation",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INTEG_006_A",
+              "name": "Modify AnalysisEngine to call ONNXInference",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_006_B",
+              "name": "Implement inference result smoothing (moving average)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_006_C",
+              "name": "Test end-to-end: audio -> features -> inference -> advice",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_006_D",
+              "name": "Verify latency < 5ms per analysis cycle",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_006_E",
+              "name": "Integration tests with test audio files",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INTEG_007",
+          "name": "Integration Testing & Validation",
+          "description": "Full end-to-end tests from audio to UI updates",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INTEG_007_A",
+              "name": "Create integration test suite",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_007_B",
+              "name": "Test with Metalcore Kick audio sample",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_007_C",
+              "name": "Test with Metalcore Bass audio sample",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_007_D",
+              "name": "Test multi-track analysis (drum + bass)",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_007_E",
+              "name": "Test masking detection with known frequency collisions",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_007_F",
+              "name": "Verify correct advice generation for each scenario",
+              "status": "pending"
+            },
+            {
+              "id": "INTEG_007_G",
+              "name": "Document test results and coverage",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_4",
+      "name": "The UX (User Interface & Visualization)",
+      "description": "Build GUI with Ghost Needle, Target Curve, Text Feed, and Session Setup",
+      "status": "pending",
+      "priority": "high",
+      "estimatedWeeks": 3,
+      "tasks": [
+        {
+          "id": "UX_001",
+          "name": "Create Basic GUI Framework",
+          "description": "Setup JUCE Editor, layout system, and component hierarchy",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_001_A",
+              "name": "Create Source/GUI/PluginEditor.h with Component tree",
+              "status": "pending"
+            },
+            {
+              "id": "UX_001_B",
+              "name": "Setup main layout: Header | Left Feed | Right Visuals",
+              "status": "pending"
+            },
+            {
+              "id": "UX_001_C",
+              "name": "Implement resizable window with min/max dimensions",
+              "status": "pending"
+            },
+            {
+              "id": "UX_001_D",
+              "name": "Create Source/GUI/PluginEditor.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "UX_001_E",
+              "name": "Test layout responsiveness",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_002",
+          "name": "Implement Header Component",
+          "description": "Display instrument name, genre selector, and status indicator",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_002_A",
+              "name": "Create Source/GUI/HeaderComponent.h",
+              "status": "pending"
+            },
+            {
+              "id": "UX_002_B",
+              "name": "Implement instrument dropdown with icons",
+              "status": "pending"
+            },
+            {
+              "id": "UX_002_C",
+              "name": "Implement genre selector dropdown",
+              "status": "pending"
+            },
+            {
+              "id": "UX_002_D",
+              "name": "Implement status indicator (Listening, Waiting, Error)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_002_E",
+              "name": "Create Source/GUI/HeaderComponent.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "UX_002_F",
+              "name": "Test dropdown interaction",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_003",
+          "name": "Implement Session Setup Screen",
+          "description": "Build band lineup checklist and genre selector",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_003_A",
+              "name": "Create Source/GUI/SessionSetupComponent.h",
+              "status": "pending"
+            },
+            {
+              "id": "UX_003_B",
+              "name": "Create instrument icon grid (Kick, Snare, Bass, Guitars, Vocals)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_003_C",
+              "name": "Implement instrument selection logic",
+              "status": "pending"
+            },
+            {
+              "id": "UX_003_D",
+              "name": "Implement genre selection overlay",
+              "status": "pending"
+            },
+            {
+              "id": "UX_003_E",
+              "name": "Create Source/GUI/SessionSetupComponent.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "UX_003_F",
+              "name": "Test user flow (select instruments -> select genre -> confirm)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_004",
+          "name": "Implement Text Feed Component",
+          "description": "Display prioritized advice with status indicators",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_004_A",
+              "name": "Create Source/GUI/TextFeedComponent.h",
+              "status": "pending"
+            },
+            {
+              "id": "UX_004_B",
+              "name": "Create advice item component (text + status badge)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_004_C",
+              "name": "Implement scrollable advice list (max 3 visible)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_004_D",
+              "name": "Implement status indicators (Pending, Good, Failed, Hidden)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_004_E",
+              "name": "Implement color scheme (green=success, yellow=pending, red=failed)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_004_F",
+              "name": "Create Source/GUI/TextFeedComponent.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "UX_004_G",
+              "name": "Test with sample advice list",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_005",
+          "name": "Implement Ghost Needle Component",
+          "description": "Create dual-needle gain reduction meter visualization",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_005_A",
+              "name": "Create Source/GUI/GhostNeedleComponent.h",
+              "status": "pending"
+            },
+            {
+              "id": "UX_005_B",
+              "name": "Implement linear meter background (-60dB to 0dB scale)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_005_C",
+              "name": "Implement grey needle for actual gain reduction",
+              "status": "pending"
+            },
+            {
+              "id": "UX_005_D",
+              "name": "Implement gold ghost needle for target gain reduction",
+              "status": "pending"
+            },
+            {
+              "id": "UX_005_E",
+              "name": "Implement smooth needle animation",
+              "status": "pending"
+            },
+            {
+              "id": "UX_005_F",
+              "name": "Add numerical display (dB values)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_005_G",
+              "name": "Create Source/GUI/GhostNeedleComponent.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "UX_005_H",
+              "name": "Test with test data (moving needles)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_006",
+          "name": "Implement Target Curve Component",
+          "description": "Create EQ difference curve visualization (ideal vs actual)",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_006_A",
+              "name": "Create Source/GUI/TargetCurveComponent.h",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_B",
+              "name": "Implement frequency axis (20Hz - 20kHz log scale)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_C",
+              "name": "Implement amplitude axis (-12dB to +12dB)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_D",
+              "name": "Implement center reference line (ideal)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_E",
+              "name": "Implement red curve for boosted bands (above ideal)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_F",
+              "name": "Implement blue curve for cut bands (below ideal)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_G",
+              "name": "Implement smooth curve interpolation (spline)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_H",
+              "name": "Create Source/GUI/TargetCurveComponent.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "UX_006_I",
+              "name": "Test with EQ band data",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_007",
+          "name": "Implement Footer/Context Component",
+          "description": "Display relational advice and warnings",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_007_A",
+              "name": "Create Source/GUI/FooterComponent.h",
+              "status": "pending"
+            },
+            {
+              "id": "UX_007_B",
+              "name": "Implement context text area (masking, sidechain info)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_007_C",
+              "name": "Implement warning indicator (yellow when missing foundation)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_007_D",
+              "name": "Implement relationship display (e.g., 'Related: Kick Drum')",
+              "status": "pending"
+            },
+            {
+              "id": "UX_007_E",
+              "name": "Create Source/GUI/FooterComponent.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "UX_007_F",
+              "name": "Test with context scenarios",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_008",
+          "name": "Implement Parameter-to-UI Binding",
+          "description": "Create ValueTree listeners for real-time parameter updates",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_008_A",
+              "name": "Create Source/GUI/ParameterBinding.h",
+              "status": "pending"
+            },
+            {
+              "id": "UX_008_B",
+              "name": "Implement ValueTree listener pattern",
+              "status": "pending"
+            },
+            {
+              "id": "UX_008_C",
+              "name": "Bind advice data to TextFeedComponent",
+              "status": "pending"
+            },
+            {
+              "id": "UX_008_D",
+              "name": "Bind compression data to GhostNeedleComponent",
+              "status": "pending"
+            },
+            {
+              "id": "UX_008_E",
+              "name": "Bind EQ curve data to TargetCurveComponent",
+              "status": "pending"
+            },
+            {
+              "id": "UX_008_F",
+              "name": "Test real-time updates when state changes",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_009",
+          "name": "Style & Theme System",
+          "description": "Create consistent colors, fonts, and visual language",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_009_A",
+              "name": "Create Source/GUI/Theme.h with color constants",
+              "status": "pending"
+            },
+            {
+              "id": "UX_009_B",
+              "name": "Define color palette (background, accents, success/error)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_009_C",
+              "name": "Select and embed fonts (Roboto or similar)",
+              "status": "pending"
+            },
+            {
+              "id": "UX_009_D",
+              "name": "Create consistent spacing/padding system",
+              "status": "pending"
+            },
+            {
+              "id": "UX_009_E",
+              "name": "Create icon assets for instruments and status",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "UX_010",
+          "name": "UI Testing & Polish",
+          "description": "Test all components, responsive layout, user workflows",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "UX_010_A",
+              "name": "Test header component responsiveness",
+              "status": "pending"
+            },
+            {
+              "id": "UX_010_B",
+              "name": "Test session setup flow",
+              "status": "pending"
+            },
+            {
+              "id": "UX_010_C",
+              "name": "Test feed component with 5+ advice items",
+              "status": "pending"
+            },
+            {
+              "id": "UX_010_D",
+              "name": "Test ghost needle animation smoothness",
+              "status": "pending"
+            },
+            {
+              "id": "UX_010_E",
+              "name": "Test target curve rendering with various EQ data",
+              "status": "pending"
+            },
+            {
+              "id": "UX_010_F",
+              "name": "Verify visual hierarchy and readability",
+              "status": "pending"
+            },
+            {
+              "id": "UX_010_G",
+              "name": "Test on multiple screen resolutions",
+              "status": "pending"
+            },
+            {
+              "id": "UX_010_H",
+              "name": "Polish animations and transitions",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_5",
+      "name": "Studio One Integration & Testing",
+      "description": "Test plugin in Studio One, implement DAW-specific features, comprehensive testing",
+      "status": "pending",
+      "priority": "high",
+      "estimatedWeeks": 4,
+      "tasks": [
+        {
+          "id": "TEST_001",
+          "name": "DAW Integration Setup",
+          "description": "Configure Studio One host detection and plugin parameters",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_001_A",
+              "name": "Implement host detection (IEditController context)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_001_B",
+              "name": "Verify plugin loads in Studio One Pro+ 6.5+",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_001_C",
+              "name": "Test plugin on multiple track types (Audio, Instrument)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_001_D",
+              "name": "Verify host parameter reporting accuracy",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_001_E",
+              "name": "Test plugin state saving/recall",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_002",
+          "name": "Studio One Stock Plugin Mapping",
+          "description": "Verify parameter mapping to Compressor and Pro EQ 3",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_002_A",
+              "name": "Map Studio One Compressor parameters (Ratio, Attack, Release, Threshold)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_002_B",
+              "name": "Create lookup tables for ratio/attack/release conversions",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_002_C",
+              "name": "Test conversion accuracy (e.g., 0.40 = 30ms attack)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_002_D",
+              "name": "Map Pro EQ 3 band parameters (LC, LF, LMF, HMF, HF)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_002_E",
+              "name": "Verify frequency/gain conversion accuracy",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_002_F",
+              "name": "Test with real Studio One instances",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_003",
+          "name": "Feature Testing (Metalcore Genre)",
+          "description": "Comprehensive testing of all features with Rock/Metal tracks",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_003_A",
+              "name": "Test instrument identification on Metalcore Kick",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_003_B",
+              "name": "Test Kick analysis and EQ advice generation",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_003_C",
+              "name": "Test Ghost Needle visualization with compression advice",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_003_D",
+              "name": "Test Snare analysis and transient advice",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_003_E",
+              "name": "Test Bass analysis and sidechain detection",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_003_F",
+              "name": "Test multi-track masking detection (Kick + Bass)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_003_G",
+              "name": "Verify advice priority sorting (critical -> major -> minor)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_003_H",
+              "name": "Test Accumulator layer validation",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_004",
+          "name": "Real-Time Performance Testing",
+          "description": "Verify low-latency analysis on various CPU loads",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_004_A",
+              "name": "Measure feature extraction latency per block",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_004_B",
+              "name": "Measure ONNX inference latency (target < 2ms)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_004_C",
+              "name": "Measure total analysis latency (feature + inference + advice)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_004_D",
+              "name": "Test with 10+ plugin instances (multi-track session)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_004_E",
+              "name": "Test on low-end CPU (i5-8th gen) and high-end (i9)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_004_F",
+              "name": "Measure memory footprint per instance",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_004_G",
+              "name": "Test with 48kHz and 96kHz sample rates",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_005",
+          "name": "GUI Stability & Responsiveness Testing",
+          "description": "Test UI under various conditions and user interactions",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_005_A",
+              "name": "Test window resize responsiveness",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_005_B",
+              "name": "Test session setup flow with all instrument combinations",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_005_C",
+              "name": "Test real-time text feed updates without glitches",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_005_D",
+              "name": "Test ghost needle smooth animation at various frame rates",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_005_E",
+              "name": "Test target curve rendering with dense EQ data",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_005_F",
+              "name": "Test dropdown interactions (instrument, genre selectors)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_005_G",
+              "name": "Test undo/redo if applicable",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_005_H",
+              "name": "Test long session stability (8+ hour session)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_006",
+          "name": "Error Handling & Edge Cases",
+          "description": "Test robustness against invalid inputs and edge cases",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_006_A",
+              "name": "Test with very quiet audio (below -60dB LUFS)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_006_B",
+              "name": "Test with clipping/distorted audio",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_006_C",
+              "name": "Test with mono/stereo phase issues",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_006_D",
+              "name": "Test with missing ONNX model file",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_006_E",
+              "name": "Test rapid instrument type switching",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_006_F",
+              "name": "Test rapid genre switching",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_006_G",
+              "name": "Test plugin bypass behavior",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_006_H",
+              "name": "Test with DAW sample rate changes",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_007",
+          "name": "User Acceptance Testing (UAT)",
+          "description": "Real-world mixing scenarios with actual music projects",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_007_A",
+              "name": "Test with real Metalcore song project (drums focus)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_007_B",
+              "name": "Test with full band mix (drums, bass, guitars, vocals)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_007_C",
+              "name": "Verify advice quality and accuracy",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_007_D",
+              "name": "Verify Ghost Needle matches compressor setting",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_007_E",
+              "name": "Verify EQ advice matches target curve",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_007_F",
+              "name": "Get feedback from test users (mix engineers)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_007_G",
+              "name": "Iterate on advice clarity and usefulness",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_008",
+          "name": "Cross-Platform Testing",
+          "description": "Verify plugin works on Windows and macOS",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_008_A",
+              "name": "Build and test on Windows 10/11 with MSVC",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_008_B",
+              "name": "Test on macOS 11+ with Clang (Intel & Apple Silicon)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_008_C",
+              "name": "Verify all features work identically on both platforms",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_008_D",
+              "name": "Test with various Studio One versions (6.0, 6.5+)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_008_E",
+              "name": "Test with different DAW configurations (system tracks, etc.)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_009",
+          "name": "Documentation & Release Prep",
+          "description": "Create user guide, API docs, and release notes",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_009_A",
+              "name": "Create USER_GUIDE.md with workflow examples",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_009_B",
+              "name": "Create TROUBLESHOOTING.md with common issues",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_009_C",
+              "name": "Create API documentation for developers",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_009_D",
+              "name": "Create RELEASE_NOTES.md",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_009_E",
+              "name": "Create video tutorial (optional)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_009_F",
+              "name": "Prepare installer package",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "TEST_010",
+          "name": "Final QA & Sign-Off",
+          "description": "Final comprehensive testing before release",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "TEST_010_A",
+              "name": "Complete regression testing (all PHASE_1-4 features)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_010_B",
+              "name": "Final performance profiling",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_010_C",
+              "name": "Final security review (no injection, buffer overflow)",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_010_D",
+              "name": "Final documentation review",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_010_E",
+              "name": "Create changelog",
+              "status": "pending"
+            },
+            {
+              "id": "TEST_010_F",
+              "name": "Sign-off for Iteration 1 release",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_2A",
+      "name": "Licensing Integration (VST Plugin)",
+      "description": "Implement license validation, trial management, and activation system",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 2,
+      "tasks": [
+        {
+          "id": "LIC_001",
+          "name": "Implement Machine Fingerprinting",
+          "description": "Generate unique hardware ID (CPU + MAC + HDD serial) with VM detection",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "LIC_001_A",
+              "name": "Create Source/Licensing/MachineFingerprint.h interface",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_001_B",
+              "name": "Implement Windows hardware ID generation (WMI)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_001_C",
+              "name": "Implement macOS hardware ID generation (IOKit)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_001_D",
+              "name": "Implement VM detection (Hyper-V, VMware, VirtualBox)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_001_E",
+              "name": "Create Source/Licensing/MachineFingerprint.cpp",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_001_F",
+              "name": "Unit tests on Windows and macOS VMs",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "LIC_002",
+          "name": "Implement Trial Period Management",
+          "description": "14-day trial from first launch with encrypted persistent state",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "LIC_002_A",
+              "name": "Create Source/Licensing/TrialManager.h",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_002_B",
+              "name": "Implement trial start date persistence (Windows registry)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_002_C",
+              "name": "Implement trial start date persistence (macOS keychain)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_002_D",
+              "name": "Implement AES encryption for trial data",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_002_E",
+              "name": "Implement trial expiration check and feature locking",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_002_F",
+              "name": "Create Source/Licensing/TrialManager.cpp",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "LIC_003",
+          "name": "Implement Online Activation",
+          "description": "REST API client for license validation (HTTPS to nextgennoise.com/api/v1/activate)",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "LIC_003_A",
+              "name": "Create Source/Licensing/OnlineActivation.h",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_003_B",
+              "name": "Implement HTTPS client using JUCE or libcurl",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_003_C",
+              "name": "Implement activation request (license_key + hardware_id)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_003_D",
+              "name": "Implement retry logic with exponential backoff",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_003_E",
+              "name": "Implement error handling (network, invalid key, etc.)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_003_F",
+              "name": "Create Source/Licensing/OnlineActivation.cpp",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "LIC_004",
+          "name": "Implement Offline Activation",
+          "description": "Generate activation request files and parse offline license responses",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "LIC_004_A",
+              "name": "Create Source/Licensing/OfflineActivation.h",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_004_B",
+              "name": "Implement activation request file generation (.ngn_req)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_004_C",
+              "name": "Implement RSA encryption for request payload",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_004_D",
+              "name": "Implement offline license file parsing (.ngn_lic)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_004_E",
+              "name": "Implement RSA signature verification",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_004_F",
+              "name": "Create Source/Licensing/OfflineActivation.cpp",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "LIC_005",
+          "name": "Implement License UI Dialogs",
+          "description": "Activation dialog, trial expiration warning, purchase redirect",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "LIC_005_A",
+              "name": "Create Source/GUI/LicenseDialog.h",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_005_B",
+              "name": "Implement activation dialog UI (enter license key, online/offline toggle)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_005_C",
+              "name": "Implement trial expiration warning UI",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_005_D",
+              "name": "Implement purchase button linking to nextgennoise.com/buy",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_005_E",
+              "name": "Create Source/GUI/LicenseDialog.cpp",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "LIC_006",
+          "name": "Anti-Piracy Measures",
+          "description": "Debugger detection, code obfuscation, periodic re-validation",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "LIC_006_A",
+              "name": "Implement debugger detection (IsDebuggerPresent on Windows)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_006_B",
+              "name": "Implement debugger detection on macOS (sysctl checks)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_006_C",
+              "name": "Implement code obfuscation for license validation logic",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_006_D",
+              "name": "Implement periodic re-validation (every 7 days online)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_006_E",
+              "name": "Implement tamper detection (license file checksums)",
+              "status": "pending"
+            },
+            {
+              "id": "LIC_006_F",
+              "name": "Create Source/Licensing/LicenseManager.h (main coordinator)",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_7",
+      "name": "Web Infrastructure (Backend API)",
+      "description": "Build Node.js/Python API server with user auth, licensing, payments, analytics",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 3,
+      "tasks": [
+        {
+          "id": "WEB_001",
+          "name": "Setup Backend API Server",
+          "description": "Initialize Node.js/Python project with Express/FastAPI, CORS, environment config",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_001_A",
+              "name": "Choose tech stack (Node.js/Express or Python/FastAPI or Go/Gin)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_001_B",
+              "name": "Create project scaffold (package.json or requirements.txt)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_001_C",
+              "name": "Setup environment variables (.env, .env.example)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_001_D",
+              "name": "Configure CORS for frontend origin",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_001_E",
+              "name": "Setup logging and error handling middleware",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_001_F",
+              "name": "Create health check endpoint (/api/health)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_002",
+          "name": "Implement Authentication System",
+          "description": "User registration, JWT login/logout, password reset, session management",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_002_A",
+              "name": "Implement user registration endpoint with email verification",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_002_B",
+              "name": "Implement password hashing with bcrypt",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_002_C",
+              "name": "Implement JWT token generation and verification",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_002_D",
+              "name": "Implement login endpoint (email + password)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_002_E",
+              "name": "Implement logout endpoint (token invalidation)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_002_F",
+              "name": "Implement forgot password flow with reset links",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_002_G",
+              "name": "Implement session management with Redis",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_003",
+          "name": "Implement License Management API",
+          "description": "License key generation, activation, deactivation, status checking",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_003_A",
+              "name": "Implement license key generation algorithm (UUID + validation checksum)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_003_B",
+              "name": "Implement activation endpoint (validate key + hardware ID)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_003_C",
+              "name": "Implement deactivation endpoint (free up activation slot)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_003_D",
+              "name": "Implement license status endpoint (validity + expiry)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_003_E",
+              "name": "Implement admin license creation/revocation endpoints",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_003_F",
+              "name": "Implement max activation slot enforcement (2 machines default)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_004",
+          "name": "Integrate Payment Processing",
+          "description": "Stripe API integration, checkout sessions, webhook handling",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_004_A",
+              "name": "Setup Stripe API account and keys",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_004_B",
+              "name": "Implement checkout session creation endpoint",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_004_C",
+              "name": "Implement Stripe webhook handler (payment_intent.succeeded)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_004_D",
+              "name": "Implement automatic license generation on payment success",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_004_E",
+              "name": "Implement email delivery of license key",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_004_F",
+              "name": "Implement refund handling and license revocation",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_005",
+          "name": "Implement Analytics Collection",
+          "description": "Telemetry endpoint, usage tracking, privacy-compliant data storage",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_005_A",
+              "name": "Implement telemetry endpoint (/api/v1/analytics/telemetry)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_005_B",
+              "name": "Store telemetry: session_duration, features_used, DAW_type, OS",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_005_C",
+              "name": "Implement IP anonymization (GDPR-compliant)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_005_D",
+              "name": "Implement analytics dashboard endpoint (/api/v1/analytics/dashboard)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_005_E",
+              "name": "Implement crash report collection and storage",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_005_F",
+              "name": "Test with sample telemetry data",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_006",
+          "name": "Setup Database Migrations",
+          "description": "Knex.js or Alembic migrations, schema versioning, seed data",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_006_A",
+              "name": "Setup migration tool (Knex or Alembic)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_006_B",
+              "name": "Create initial schema migration (users, licenses, activations, etc.)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_006_C",
+              "name": "Create seed data migration (test users, test licenses)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_006_D",
+              "name": "Version control migrations (git tracking)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_006_E",
+              "name": "Test migration rollback and forward",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_007",
+          "name": "API Testing",
+          "description": "Unit tests, integration tests, load testing, security testing",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_007_A",
+              "name": "Create unit test suite (Jest/Pytest)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_007_B",
+              "name": "Create integration tests (DB + API)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_007_C",
+              "name": "Implement load testing (Artillery or k6)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_007_D",
+              "name": "Test SQL injection prevention",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_007_E",
+              "name": "Test XSS prevention",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_007_F",
+              "name": "Test CSRF protection",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_008",
+          "name": "Deploy to Production",
+          "description": "CI/CD setup, deployment to AWS/DigitalOcean, SSL/TLS, CDN",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_008_A",
+              "name": "Setup GitHub Actions CI/CD pipeline",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_008_B",
+              "name": "Deploy to AWS EC2 or DigitalOcean",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_008_C",
+              "name": "Configure SSL/TLS certificate (Let's Encrypt)",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_008_D",
+              "name": "Setup CloudFlare CDN",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_008_E",
+              "name": "Configure database backups",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_008_F",
+              "name": "Test production deployment",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_8",
+      "name": "Frontend (Customer Portal)",
+      "description": "Build React/Vue customer portal for purchases, downloads, account management",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 2,
+      "tasks": [
+        {
+          "id": "FRONT_001",
+          "name": "Setup Frontend Project",
+          "description": "Initialize Next.js/Nuxt, TailwindCSS, routing, API client",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_001_A",
+              "name": "Initialize Next.js or Nuxt project",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_001_B",
+              "name": "Configure TailwindCSS for styling",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_001_C",
+              "name": "Setup routing structure",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_001_D",
+              "name": "Create API client (Axios/Fetch wrapper)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_001_E",
+              "name": "Setup state management (Zustand/Pinia)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_002",
+          "name": "Build Homepage",
+          "description": "Hero section, feature highlights, pricing CTA, footer",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_002_A",
+              "name": "Create hero section with product demo video embed",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_002_B",
+              "name": "Create feature highlights section (Ghost Needle, AI Mentor, etc.)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_002_C",
+              "name": "Create pricing/buy CTA buttons",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_002_D",
+              "name": "Create footer with links and copyright",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_002_E",
+              "name": "Optimize for SEO (meta tags, sitemap)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_003",
+          "name": "Build Authentication Pages",
+          "description": "Login, register, forgot password, email verification",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_003_A",
+              "name": "Create login page with form validation",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_003_B",
+              "name": "Create register page with email verification prompt",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_003_C",
+              "name": "Create forgot password page with email reset flow",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_003_D",
+              "name": "Create email verification success page",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_003_E",
+              "name": "Implement client-side validation (zod or yup)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_004",
+          "name": "Build User Dashboard",
+          "description": "Overview, license management, downloads, support tickets",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_004_A",
+              "name": "Create dashboard overview (active licenses, activity)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_004_B",
+              "name": "Create license management page (view, deactivate machines)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_004_C",
+              "name": "Create downloads page (Windows/macOS installers)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_004_D",
+              "name": "Create support ticket submission page",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_004_E",
+              "name": "Create profile settings page (email, password)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_005",
+          "name": "Build Purchase Flow",
+          "description": "Pricing page, Stripe checkout, success confirmation",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_005_A",
+              "name": "Create pricing page with plan comparison",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_005_B",
+              "name": "Integrate Stripe checkout (react-stripe-js)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_005_C",
+              "name": "Create success page (display license key, confirm email)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_005_D",
+              "name": "Create error page (payment failed)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_005_E",
+              "name": "Test with Stripe test mode",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_006",
+          "name": "Build Documentation Site",
+          "description": "Installation guide, quick start, feature reference, FAQ",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_006_A",
+              "name": "Create installation guide page",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_006_B",
+              "name": "Create quick start tutorial page",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_006_C",
+              "name": "Create feature reference pages",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_006_D",
+              "name": "Create FAQ page",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_006_E",
+              "name": "Setup markdown-based docs system (MDX or similar)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_007",
+          "name": "Responsive Design",
+          "description": "Mobile, tablet, desktop optimization",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_007_A",
+              "name": "Test mobile layout on iPhone/Android",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_007_B",
+              "name": "Test tablet layout (iPad)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_007_C",
+              "name": "Test desktop layout (1920x1080, 2560x1440)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_007_D",
+              "name": "Optimize touch interactions for mobile",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_007_E",
+              "name": "Test with various browsers (Chrome, Firefox, Safari)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_008",
+          "name": "SEO Optimization",
+          "description": "Meta tags, sitemap, structured data, Google indexing",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_008_A",
+              "name": "Setup meta tags for all pages",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_008_B",
+              "name": "Create sitemap.xml",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_008_C",
+              "name": "Create robots.txt",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_008_D",
+              "name": "Setup Google Search Console",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_008_E",
+              "name": "Setup Google Analytics (optional)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "FRONT_009",
+          "name": "Deploy Frontend",
+          "description": "Deploy to Vercel/Netlify, domain setup, CDN",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "FRONT_009_A",
+              "name": "Connect GitHub repo to Vercel/Netlify",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_009_B",
+              "name": "Configure custom domain (nextgennoise.com)",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_009_C",
+              "name": "Setup SSL certificate",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_009_D",
+              "name": "Configure environment variables for API endpoints",
+              "status": "pending"
+            },
+            {
+              "id": "FRONT_009_E",
+              "name": "Test production deployment",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_9",
+      "name": "Database Design & Implementation",
+      "description": "PostgreSQL schema, migrations, ORM setup, Redis caching, backups",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 1,
+      "tasks": [
+        {
+          "id": "DB_001",
+          "name": "Schema Design",
+          "description": "Design normalized tables, relationships, indexes, ER diagram",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "DB_001_A",
+              "name": "Design users table schema",
+              "status": "pending"
+            },
+            {
+              "id": "DB_001_B",
+              "name": "Design licenses table schema",
+              "status": "pending"
+            },
+            {
+              "id": "DB_001_C",
+              "name": "Design activations table schema",
+              "status": "pending"
+            },
+            {
+              "id": "DB_001_D",
+              "name": "Design purchases and telemetry tables",
+              "status": "pending"
+            },
+            {
+              "id": "DB_001_E",
+              "name": "Design support_tickets table",
+              "status": "pending"
+            },
+            {
+              "id": "DB_001_F",
+              "name": "Define foreign key relationships",
+              "status": "pending"
+            },
+            {
+              "id": "DB_001_G",
+              "name": "Create ER diagram and documentation",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "DB_002",
+          "name": "Setup PostgreSQL",
+          "description": "Provision PostgreSQL instance, connection pooling, read replicas",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "DB_002_A",
+              "name": "Provision PostgreSQL instance (AWS RDS or DigitalOcean)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_002_B",
+              "name": "Configure connection pooling (pgBouncer or PgPool)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_002_C",
+              "name": "Setup read replicas for horizontal scaling",
+              "status": "pending"
+            },
+            {
+              "id": "DB_002_D",
+              "name": "Configure security groups and network access",
+              "status": "pending"
+            },
+            {
+              "id": "DB_002_E",
+              "name": "Test connectivity from application servers",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "DB_003",
+          "name": "Create Migration Scripts",
+          "description": "Initial schema migration, seed data, version control",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "DB_003_A",
+              "name": "Create initial schema migration file",
+              "status": "pending"
+            },
+            {
+              "id": "DB_003_B",
+              "name": "Create seed data migration (test users, licenses)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_003_C",
+              "name": "Setup migration version control (git tracking)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_003_D",
+              "name": "Test migration up and down",
+              "status": "pending"
+            },
+            {
+              "id": "DB_003_E",
+              "name": "Document migration procedures",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "DB_004",
+          "name": "Implement Database Access Layer",
+          "description": "ORM setup, repository pattern, transactions",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "DB_004_A",
+              "name": "Setup ORM (Prisma/TypeORM for Node, SQLAlchemy for Python)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_004_B",
+              "name": "Implement UserRepository",
+              "status": "pending"
+            },
+            {
+              "id": "DB_004_C",
+              "name": "Implement LicenseRepository",
+              "status": "pending"
+            },
+            {
+              "id": "DB_004_D",
+              "name": "Implement ActivationRepository",
+              "status": "pending"
+            },
+            {
+              "id": "DB_004_E",
+              "name": "Implement transaction management",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "DB_005",
+          "name": "Setup Redis for Caching",
+          "description": "Redis instance, cache JWT tokens, license status, sessions",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "DB_005_A",
+              "name": "Provision Redis instance (AWS ElastiCache or DigitalOcean)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_005_B",
+              "name": "Configure Redis connection pooling",
+              "status": "pending"
+            },
+            {
+              "id": "DB_005_C",
+              "name": "Implement JWT token caching (with TTL)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_005_D",
+              "name": "Implement license validation result caching (5-minute TTL)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_005_E",
+              "name": "Implement session storage in Redis",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "DB_006",
+          "name": "Backup Strategy",
+          "description": "Automated backups, point-in-time recovery, backup testing",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "DB_006_A",
+              "name": "Configure automated daily backups",
+              "status": "pending"
+            },
+            {
+              "id": "DB_006_B",
+              "name": "Enable point-in-time recovery (PITR)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_006_C",
+              "name": "Create backup testing procedures",
+              "status": "pending"
+            },
+            {
+              "id": "DB_006_D",
+              "name": "Document disaster recovery plan",
+              "status": "pending"
+            },
+            {
+              "id": "DB_006_E",
+              "name": "Test restore from backup",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "DB_007",
+          "name": "Security Hardening",
+          "description": "SSL/TLS, least privilege, parameterized queries, audit logging",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "DB_007_A",
+              "name": "Configure encrypted connections (SSL/TLS)",
+              "status": "pending"
+            },
+            {
+              "id": "DB_007_B",
+              "name": "Setup database user roles with least privilege",
+              "status": "pending"
+            },
+            {
+              "id": "DB_007_C",
+              "name": "Verify parameterized queries throughout app",
+              "status": "pending"
+            },
+            {
+              "id": "DB_007_D",
+              "name": "Enable database audit logging",
+              "status": "pending"
+            },
+            {
+              "id": "DB_007_E",
+              "name": "Test SQL injection prevention",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_10",
+      "name": "Installer & Distribution",
+      "description": "Windows/macOS installers, code signing, notarization, auto-update system",
+      "status": "pending",
+      "priority": "critical",
+      "estimatedWeeks": 1,
+      "tasks": [
+        {
+          "id": "INSTALL_001",
+          "name": "Create Windows Installer",
+          "description": "Inno Setup script, dependencies, VST3 installation, code signing",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INSTALL_001_A",
+              "name": "Download and setup Inno Setup",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_001_B",
+              "name": "Create Inno Setup script (.iss file)",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_001_C",
+              "name": "Include ONNX Runtime DLLs in installer",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_001_D",
+              "name": "Configure VST3 installation directory",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_001_E",
+              "name": "Create uninstaller script",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_001_F",
+              "name": "Implement registry entries for trial tracking",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_001_G",
+              "name": "Purchase and configure Authenticode certificate",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_001_H",
+              "name": "Code sign installer executable",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INSTALL_002",
+          "name": "Create macOS Installer",
+          "description": "pkgbuild package, code signing, notarization",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INSTALL_002_A",
+              "name": "Create distribution structure (.app bundle)",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_002_B",
+              "name": "Create .pkg with pkgbuild",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_002_C",
+              "name": "Configure VST3 installation path (~/Library/Audio/Plug-Ins/VST3/)",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_002_D",
+              "name": "Include ONNX Runtime dylibs",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_002_E",
+              "name": "Setup code signing with Developer ID certificate",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_002_F",
+              "name": "Submit for Apple notarization",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_002_G",
+              "name": "Staple notarization ticket to installer",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INSTALL_003",
+          "name": "Setup Auto-Update System",
+          "description": "Version checking, update downloads, prompt user",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INSTALL_003_A",
+              "name": "Implement version check endpoint (VST calls nextgennoise.com/api/v1/version)",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_003_B",
+              "name": "Integrate Sparkle (macOS) for auto-updates",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_003_C",
+              "name": "Integrate WinSparkle (Windows) for auto-updates",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_003_D",
+              "name": "Implement user prompt for available updates",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_003_E",
+              "name": "Test update download and installation flow",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INSTALL_004",
+          "name": "Create Installers CI/CD Pipeline",
+          "description": "GitHub Actions builds, S3 upload, download link updates",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INSTALL_004_A",
+              "name": "Create GitHub Actions workflow for Windows build",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_004_B",
+              "name": "Create GitHub Actions workflow for macOS build",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_004_C",
+              "name": "Setup S3 bucket for installer uploads",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_004_D",
+              "name": "Implement automated installer signing in CI",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_004_E",
+              "name": "Test full CI/CD pipeline with release tag",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "INSTALL_005",
+          "name": "Test Installation",
+          "description": "Test on clean VMs, verify dependencies, uninstall/reinstall, upgrades",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "INSTALL_005_A",
+              "name": "Test Windows installer on clean Windows 10 VM",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_005_B",
+              "name": "Test Windows installer on clean Windows 11 VM",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_005_C",
+              "name": "Test macOS installer on clean macOS 11+ VM",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_005_D",
+              "name": "Verify all dependencies installed (ONNX Runtime, models)",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_005_E",
+              "name": "Test uninstall and reinstall",
+              "status": "pending"
+            },
+            {
+              "id": "INSTALL_005_F",
+              "name": "Test upgrade from previous version",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_11",
+      "name": "Email, Admin, Monitoring & Security",
+      "description": "Email system, admin dashboard, error tracking, monitoring, compliance",
+      "status": "pending",
+      "priority": "high",
+      "estimatedWeeks": 1,
+      "tasks": [
+        {
+          "id": "EMAIL_001",
+          "name": "Setup Email Service",
+          "description": "smtp.com integration for transactional emails, Mailchimp for marketing",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "EMAIL_001_A",
+              "name": "Configure smtp.com SMTP credentials in backend (host, port, auth)",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_001_B",
+              "name": "Setup Mailchimp API integration for audience sync and automation",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_001_C",
+              "name": "Create email helper modules (nodemailer for smtp.com, mailchimp-api)",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_001_D",
+              "name": "Test transactional email delivery via smtp.com in development",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_001_E",
+              "name": "Configure sender domain (noreply@nextgennoise.com) with SPF/DKIM",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_001_F",
+              "name": "Create Mailchimp audience for NextGen Noise users",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "EMAIL_002",
+          "name": "Create Email Templates",
+          "description": "Welcome, verification, license delivery, password reset, trial expiration, update",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "EMAIL_002_A",
+              "name": "Create welcome email template",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_002_B",
+              "name": "Create email verification template",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_002_C",
+              "name": "Create license key delivery template",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_002_D",
+              "name": "Create password reset template",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_002_E",
+              "name": "Create trial expiration warning template",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_002_F",
+              "name": "Create update notification template",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "EMAIL_003",
+          "name": "Implement Transactional Emails",
+          "description": "Send emails for registration, purchase, support, password reset",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "EMAIL_003_A",
+              "name": "Send welcome email on registration",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_003_B",
+              "name": "Send verification email with link",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_003_C",
+              "name": "Send license key email on purchase",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_003_D",
+              "name": "Send password reset link email",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_003_E",
+              "name": "Send support ticket confirmation",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "EMAIL_004",
+          "name": "Test Email Delivery",
+          "description": "Test all email templates, delivery, rendering",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "EMAIL_004_A",
+              "name": "Test welcome email delivery",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_004_B",
+              "name": "Test license key email",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_004_C",
+              "name": "Verify email rendering in Gmail, Outlook, Apple Mail",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_004_D",
+              "name": "Test email SPF/DKIM records",
+              "status": "pending"
+            },
+            {
+              "id": "EMAIL_004_E",
+              "name": "Monitor bounce and complaint rates",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ADMIN_001",
+          "name": "Build Admin Dashboard Backend",
+          "description": "API endpoints for user/license management, analytics, support",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ADMIN_001_A",
+              "name": "Create admin user roles and permissions",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_001_B",
+              "name": "Implement user management endpoints (list, edit, delete)",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_001_C",
+              "name": "Implement license management endpoints (create, revoke, view)",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_001_D",
+              "name": "Implement analytics endpoints (users, revenue, active licenses)",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_001_E",
+              "name": "Implement support ticket management endpoints",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ADMIN_002",
+          "name": "Build Admin Dashboard Frontend",
+          "description": "React/Vue UI for admin operations and analytics",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ADMIN_002_A",
+              "name": "Create admin login page",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_002_B",
+              "name": "Create user management page (list, search, edit)",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_002_C",
+              "name": "Create license management page",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_002_D",
+              "name": "Create analytics dashboard (charts, metrics)",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_002_E",
+              "name": "Create support ticket queue page",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ADMIN_003",
+          "name": "Implement Role-Based Access Control (RBAC)",
+          "description": "Admin, moderator, support roles with permission checking",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ADMIN_003_A",
+              "name": "Define admin, moderator, support roles",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_003_B",
+              "name": "Implement permission checking middleware",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_003_C",
+              "name": "Protect API endpoints with RBAC",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_003_D",
+              "name": "Implement role-based UI rendering",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ADMIN_004",
+          "name": "Test Admin Features",
+          "description": "Test all admin operations and access controls",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ADMIN_004_A",
+              "name": "Test user management operations",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_004_B",
+              "name": "Test license creation and revocation",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_004_C",
+              "name": "Test analytics data accuracy",
+              "status": "pending"
+            },
+            {
+              "id": "ADMIN_004_D",
+              "name": "Test role-based access controls",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "MONITOR_001",
+          "name": "Setup Error Tracking (Sentry)",
+          "description": "Capture and monitor application errors",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "MONITOR_001_A",
+              "name": "Create Sentry account",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_001_B",
+              "name": "Integrate Sentry SDK in backend",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_001_C",
+              "name": "Integrate Sentry SDK in frontend",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_001_D",
+              "name": "Configure error alerts (email/Slack)",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_001_E",
+              "name": "Test error capture with sample errors",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "MONITOR_002",
+          "name": "Setup Server Monitoring",
+          "description": "CPU, memory, disk usage, uptime monitoring",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "MONITOR_002_A",
+              "name": "Setup Datadog or New Relic account",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_002_B",
+              "name": "Install monitoring agent on servers",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_002_C",
+              "name": "Configure CPU/memory/disk dashboards",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_002_D",
+              "name": "Setup uptime monitoring and alerts",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "MONITOR_003",
+          "name": "Setup Log Aggregation",
+          "description": "Elasticsearch/Kibana or Loggly for centralized logging",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "MONITOR_003_A",
+              "name": "Setup log aggregation tool (ELK stack or Loggly)",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_003_B",
+              "name": "Configure log shipping from app servers",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_003_C",
+              "name": "Create log dashboards and searches",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_003_D",
+              "name": "Test log aggregation with sample logs",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "MONITOR_004",
+          "name": "Configure Alerts",
+          "description": "Email/Slack notifications for critical errors",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "MONITOR_004_A",
+              "name": "Setup Slack webhook for alerts",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_004_B",
+              "name": "Configure high-priority error alerts",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_004_C",
+              "name": "Configure database backup alerts",
+              "status": "pending"
+            },
+            {
+              "id": "MONITOR_004_D",
+              "name": "Configure uptime alerts",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SECURITY_001",
+          "name": "Implement Security Best Practices",
+          "description": "HTTPS, password hashing, JWT, rate limiting, input validation, CORS",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SECURITY_001_A",
+              "name": "Enforce HTTPS everywhere (TLS 1.2+)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_001_B",
+              "name": "Implement password hashing with bcrypt (10+ rounds)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_001_C",
+              "name": "Implement JWT with proper expiration",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_001_D",
+              "name": "Implement rate limiting (20 requests/minute per IP)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_001_E",
+              "name": "Implement input validation and sanitization",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_001_F",
+              "name": "Configure CORS for frontend domain only",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_001_G",
+              "name": "Implement CSRF protection",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_001_H",
+              "name": "Secure environment variables (.env not in git)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SECURITY_002",
+          "name": "Conduct Security Audit",
+          "description": "Third-party security review or internal audit",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SECURITY_002_A",
+              "name": "Review all API endpoints for vulnerabilities",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_002_B",
+              "name": "Test authentication and authorization",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_002_C",
+              "name": "Test data encryption in transit and at rest",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_002_D",
+              "name": "Review dependency vulnerabilities (npm audit, Dependabot)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_002_E",
+              "name": "Document security findings and remediation",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SECURITY_003",
+          "name": "Penetration Testing",
+          "description": "Authorized security testing (optional, recommended)",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SECURITY_003_A",
+              "name": "Hire penetration testing firm or conduct internal test",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_003_B",
+              "name": "Test API for common vulnerabilities (OWASP Top 10)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_003_C",
+              "name": "Test frontend for XSS, CSRF, etc.",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_003_D",
+              "name": "Review and implement remediation findings",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SECURITY_004",
+          "name": "Create Privacy Policy & Terms of Service",
+          "description": "Legal documents for compliance",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SECURITY_004_A",
+              "name": "Write privacy policy (GDPR-compliant)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_004_B",
+              "name": "Write terms of service",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_004_C",
+              "name": "Add privacy policy link to website",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_004_D",
+              "name": "Add terms of service link to website",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_004_E",
+              "name": "Have legal review (optional)",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "SECURITY_005",
+          "name": "Implement GDPR Compliance Features",
+          "description": "Data export, deletion, consent, anonymization",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "SECURITY_005_A",
+              "name": "Implement user data export endpoint (JSON format)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_005_B",
+              "name": "Implement user data deletion endpoint",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_005_C",
+              "name": "Add cookie consent banner to website",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_005_D",
+              "name": "Anonymize telemetry data (no PII)",
+              "status": "pending"
+            },
+            {
+              "id": "SECURITY_005_E",
+              "name": "Implement data retention policies",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE_6",
+      "name": "Iteration 2+ Planning (Future Genres & Features)",
+      "description": "Roadmap for Hard Rock, Pop Punk, and additional features",
+      "status": "pending",
+      "priority": "low",
+      "estimatedWeeks": 0,
+      "tasks": [
+        {
+          "id": "ITER2_001",
+          "name": "Hard Rock Genre Support",
+          "description": "Add Hard Rock targets and training models",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ITER2_001_A",
+              "name": "Generate Hard Rock training dataset (Good/Flawed pairs)",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_001_B",
+              "name": "Train Hard Rock specific models (Kick, Snare, Bass, Guitar)",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_001_C",
+              "name": "Export Hard Rock ONNX models",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_001_D",
+              "name": "Add Hard Rock targets to genre database",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_001_E",
+              "name": "Test Hard Rock genre in Studio One",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ITER2_002",
+          "name": "Pop Punk Genre Support",
+          "description": "Add Pop Punk targets and training models",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ITER2_002_A",
+              "name": "Generate Pop Punk training dataset",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_002_B",
+              "name": "Train Pop Punk specific models",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_002_C",
+              "name": "Export Pop Punk ONNX models",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_002_D",
+              "name": "Add Pop Punk targets to genre database",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_002_E",
+              "name": "Test Pop Punk genre in Studio One",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ITER2_003",
+          "name": "Multi-DAW Support",
+          "description": "Extend to Logic Pro, Reaper, Ableton Live",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ITER2_003_A",
+              "name": "Map Logic Pro stock plugin parameters",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_003_B",
+              "name": "Implement Logic Pro host detection",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_003_C",
+              "name": "Map Reaper plugin parameters",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_003_D",
+              "name": "Map Ableton Live plugin parameters",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_003_E",
+              "name": "Test with each DAW",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ITER2_004",
+          "name": "Advanced Features",
+          "description": "Add A/B comparison, preset system, sidechain assistant",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "ITER2_004_A",
+              "name": "Implement A/B comparison mode (before/after)",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_004_B",
+              "name": "Implement preset system for advice",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_004_C",
+              "name": "Implement visual sidechain assistant",
+              "status": "pending"
+            },
+            {
+              "id": "ITER2_004_D",
+              "name": "Implement audio feedback (beep on success)",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalPhases": 12,
+    "completedPhases": 0,
+    "inProgressPhases": 0,
+    "totalTasks": 150,
+    "completedTasks": 0,
+    "inProgressTasks": 0,
+    "estimatedTotalWeeks": 26,
+    "targetReleaseDate": "Q3 2025",
+    "criticalPath": ["PHASE_0", "PHASE_1", "PHASE_2", "PHASE_2A", "PHASE_3", "PHASE_4", "PHASE_5", "PHASE_7", "PHASE_8", "PHASE_9", "PHASE_10", "PHASE_11"],
+    "notes": "Expansion plan adds licensing, web infrastructure, payment processing, and distribution systems. Original timeline: 17 weeks. Updated timeline: 26 weeks (~6 months)."
+  },
+  "metadata": {
+    "lastUpdated": "2025-02-05",
+    "version": "1.0.0",
+    "format": "progress_tracking_schema_v1"
+  }
+}

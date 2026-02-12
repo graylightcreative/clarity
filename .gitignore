@@ -1,0 +1,143 @@
+# =============================================================================
+# NGN Clarity .gitignore - Security First
+# =============================================================================
+
+# 🛡️ SECRETS - CRITICAL - NEVER COMMIT
+.env
+.env.local
+.env.*.local
+.env.txt
+.env.example.local
+secrets.json
+credentials.json
+private_key.pem
+*.key
+*.pem
+
+# GitHub Personal Access Tokens (if accidentally created)
+github_token
+github_pat
+
+# Build directories
+build/
+out/
+cmake-build-*/
+.vs/
+.vscode/
+.idea/
+*.xcodeproj/
+*.pbxproj/
+.Xcode.env
+
+# CMake
+CMakeLists.txt.user
+*.cmake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+# Compiled binaries & objects
+*.o
+*.a
+*.lib
+*.dll
+*.dylib
+*.so
+*.exe
+*.app
+*.obj
+*.res
+*.rc
+
+# IDE & Editor
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+env/
+.python-version
+.venv/
+pip-log.txt
+
+# Generated files
+HMAC_Keys.h
+*.log
+*.tmp
+*.bak
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Node/npm
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# macOS
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Temporary files
+*.swp
+*.swo
+*~
+.~*
+.temp/
+.tmp/
+
+# Test coverage
+coverage/
+.coverage
+*.cover
+
+# Documentation build
+docs/_build/
+site/
+
+# Large media files (use Git LFS if needed)
+*.wav
+*.mp3
+*.flac
+*.aiff
+*.m4a
+*.mov
+*.mp4
+
+# Lock files (optional - uncomment if team uses them)
+# Cargo.lock
+# Pipfile.lock
