@@ -15,7 +15,8 @@
                         <a href="#mentor-mission" class="block hover:text-ngn-orange transition-colors">00 // The Mission</a>
                         <a href="#how-it-works" class="block hover:text-ngn-orange transition-colors">01 // AI Intelligence</a>
                         <a href="#the-prescription" class="block hover:text-ngn-orange transition-colors">02 // The Prescription</a>
-                        <a href="#workflow" class="block hover:text-ngn-orange transition-colors">03 // Mixing Workflow</a>
+                        <a href="#sovereign-link" class="block hover:text-ngn-orange transition-colors font-bold text-white/60">03 // Sovereign Link</a>
+                        <a href="#workflow" class="block hover:text-ngn-orange transition-colors">04 // Mixing Workflow</a>
                     </div>
                 </div>
 
@@ -23,9 +24,9 @@
                 <div class="space-y-4">
                     <div class="text-[10px] uppercase tracking-[0.4em] text-white/20 mb-6 border-b border-white/5 pb-2">Integration Protocols</div>
                     <div class="space-y-4 text-[10px] uppercase tracking-[0.2em] text-white/40">
-                        <a href="#quick-start" class="block hover:text-ngn-orange transition-colors">04 // Quick Start</a>
                         <a href="#licensing" class="block hover:text-ngn-orange transition-colors">05 // Licensing & Auth</a>
                         <a href="#telemetry" class="block hover:text-ngn-orange transition-colors">06 // Telemetry Ingest</a>
+                        <a href="#quick-start" class="block hover:text-ngn-orange transition-colors">07 // Admin Protocols</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +40,7 @@
             <!-- The Mission -->
             <section id="mentor-mission" class="scroll-mt-32">
                 <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
-                    <span class="text-ngn-orange/20 text-6xl block mb-2">00</span>
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono">00</span>
                     The Mission: <span class="text-ngn-orange">Education via Analysis.</span>
                 </h2>
                 <div class="text-white/70 leading-relaxed font-light space-y-6 text-lg">
@@ -51,14 +52,14 @@
             <!-- AI Intelligence -->
             <section id="how-it-works" class="scroll-mt-32">
                 <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
-                    <span class="text-ngn-orange/20 text-6xl block mb-2">01</span>
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono">01</span>
                     AI Intelligence: <span class="text-ngn-orange">The Neural Ear.</span>
                 </h2>
                 <div class="text-white/70 leading-relaxed font-light space-y-6">
                     <p>At the heart of Clarity is a specialized neural network trained on over 50,000 professional stems across every major genre. </p>
-                    <p>The plugin performs a real-time, multi-dimensional analysis of your track's frequency response, dynamic range, and harmonic content. It then compares this data to high-integrity **Inference Targets**—idealized sonic profiles for specific instruments (e.g., "Modern Metal Snare", "Silky Pop Vocal").</p>
+                    <p>The plugin performs a real-time, multi-dimensional analysis of your track's frequency response, dynamic range, and harmonic content. It then compares this data to high-integrity **Inference Targets**—idealized sonic profiles for specific instruments.</p>
                     <div class="sp-card bg-white/[0.02] border-white/5">
-                        <h4 class="text-xs uppercase tracking-widest text-ngn-orange mb-4">Core Tech: Local Inference</h4>
+                        <h4 class="text-xs uppercase tracking-widest text-ngn-orange mb-4 font-mono">Core Tech: Local Inference</h4>
                         <p class="text-sm text-white/40">100% of the AI analysis is performed locally on your CPU/GPU via ONNX Runtime. Your audio never leaves your DAW. Zero latency. Total sovereignty.</p>
                     </div>
                 </div>
@@ -67,7 +68,7 @@
             <!-- The Prescription -->
             <section id="the-prescription" class="scroll-mt-32">
                 <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
-                    <span class="text-ngn-orange/20 text-6xl block mb-2">02</span>
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono">02</span>
                     The Prescription: <span class="text-ngn-orange">Stock-Plugin Mastery.</span>
                 </h2>
                 <div class="text-white/70 leading-relaxed font-light space-y-6">
@@ -76,24 +77,55 @@
                 </div>
             </section>
 
+            <!-- Sovereign Link -->
+            <section id="sovereign-link" class="scroll-mt-32">
+                <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono">03</span>
+                    Sovereign Link: <span class="text-ngn-orange">The Desktop Gateway.</span>
+                </h2>
+                <div class="text-white/70 leading-relaxed font-light space-y-8">
+                    <p>The **Sovereign Link** is the dedicated companion application for Windows and macOS. It handles all background synchronization, ensuring your VST engine is always pressurized without requiring manual intervention or terminal commands.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-white/[0.02] border border-white/5 rounded-lg">
+                            <h4 class="text-ngn-orange text-xs uppercase tracking-[0.2em] mb-4">Identity & Activation</h4>
+                            <p class="text-sm text-white/40">Log in once with your Beacon SSO credentials to authorize your workstation. The Link handles the HMAC-SHA256 handshake with the Vault automatically.</p>
+                        </div>
+                        <div class="p-6 bg-white/[0.02] border border-white/5 rounded-lg">
+                            <h4 class="text-ngn-orange text-xs uppercase tracking-[0.2em] mb-4">Model Synchronization</h4>
+                            <p class="text-sm text-white/40">The Link automatically pulls the latest ONNX AI models and inference targets from the Studio node, keeping your Mentor's "brain" updated in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Workflow -->
             <section id="workflow" class="scroll-mt-32">
                 <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
-                    <span class="text-ngn-orange/20 text-6xl block mb-2">03</span>
-                    Mixing Workflow: <span class="text-ngn-orange">Analyze, Learn, Fix.</span>
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono">04</span>
+                    Mixing Workflow: <span class="text-ngn-orange">The Sovereign Path.</span>
                 </h2>
-                <div class="grid md:grid-cols-3 gap-8 text-center uppercase tracking-widest text-[10px]">
-                    <div class="p-8 border border-white/5 bg-white/[0.02]">
-                        <div class="text-ngn-orange text-2xl mb-4 font-bold">01 // ANALYZE</div>
-                        <p class="text-white/40">Select your target and play 5 seconds of audio.</p>
+                <div class="space-y-12">
+                    <div class="flex items-start gap-8">
+                        <div class="w-12 h-12 rounded bg-ngn-orange text-ngn-charcoal flex items-center justify-center font-bold font-mono shrink-0">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Initialize Sovereign Link</h4>
+                            <p class="text-white/40 font-light">Launch the Link app, log in, and ensure your Node Status is <span class="text-ngn-orange">PRESSURIZED</span>.</p>
+                        </div>
                     </div>
-                    <div class="p-8 border border-white/5 bg-white/[0.02]">
-                        <div class="text-ngn-orange text-2xl mb-4 font-bold">02 // LEARN</div>
-                        <p class="text-white/40">Review the Mentor's HUD and Prescription.</p>
+                    <div class="flex items-start gap-8">
+                        <div class="w-12 h-12 rounded bg-ngn-orange text-ngn-charcoal flex items-center justify-center font-bold font-mono shrink-0">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Analyze Track</h4>
+                            <p class="text-white/40 font-light">Open the Clarity VST in your DAW, select a target, and capture 5 seconds of audio.</p>
+                        </div>
                     </div>
-                    <div class="p-8 border border-white/5 bg-white/[0.02]">
-                        <div class="text-ngn-orange text-2xl mb-4 font-bold">03 // FIX</div>
-                        <p class="text-white/40">Apply changes using your stock plugins.</p>
+                    <div class="flex items-start gap-8">
+                        <div class="w-12 h-12 rounded bg-ngn-orange text-ngn-charcoal flex items-center justify-center font-bold font-mono shrink-0">03</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Execute Prescription</h4>
+                            <p class="text-white/40 font-light">Follow the Mentor's visual guide and apply the fixes using your stock plugins.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -101,20 +133,6 @@
             <div class="h-px bg-white/5 my-20"></div>
 
             <!-- INTEGRATION PROTOCOLS (The Technical Side) -->
-
-            <section id="quick-start" class="scroll-mt-32">
-                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
-                    <span class="text-ngn-orange/20 text-5xl font-mono">04</span>
-                    Quick Start (Admin)
-                </h2>
-                <div class="text-white/60 leading-relaxed font-light space-y-4">
-                    <p>To initialize a new Clarity NGN node in the Sovereign Fleet:</p>
-                    <div class="bg-black/40 p-6 border border-white/5 rounded font-mono text-xs text-ngn-orange">
-                        nexus create-site clarity.nextgennoise.com<br>
-                        nexus fleet-deploy
-                    </div>
-                </div>
-            </section>
 
             <section id="licensing" class="scroll-mt-32">
                 <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
@@ -139,6 +157,20 @@
                 </p>
                 <div class="bg-black/40 p-6 border border-white/5 rounded font-mono text-xs text-ngn-orange">
                     POST https://pulse.graylightcreative.com/ingest
+                </div>
+            </section>
+
+            <section id="quick-start" class="scroll-mt-32">
+                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
+                    <span class="text-ngn-orange/20 text-5xl font-mono">07</span>
+                    Admin Protocols
+                </h2>
+                <div class="text-white/60 leading-relaxed font-light space-y-4">
+                    <p>To initialize a new Clarity NGN node in the Sovereign Fleet:</p>
+                    <div class="bg-black/40 p-6 border border-white/5 rounded font-mono text-xs text-ngn-orange">
+                        nexus create-site clarity.nextgennoise.com<br>
+                        nexus fleet-deploy
+                    </div>
                 </div>
             </section>
         </article>
