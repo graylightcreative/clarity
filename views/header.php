@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle ?? 'CLARITY NGN // THE MIXING MENTOR'; ?></title>
+    <title>CLARITY NGN // <?php echo strtoupper($route ?: 'THE MIXING MENTOR'); ?></title>
     <link rel="icon" type="image/png" href="https://nextgennoise.com/lib/images/site/2026/default-avatar.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +20,11 @@
                     fontFamily: {
                         mono: ['JetBrains Mono', 'monospace'],
                         sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glitch': 'glitch 1s linear infinite',
+                        'scanline': 'scanline 8s linear infinite',
                     }
                 }
             }
@@ -28,51 +33,114 @@
     <style type="text/tailwindcss">
         @layer base {
             body {
-                @apply font-mono antialiased;
-                background-image: radial-gradient(circle at 2px 2px, rgba(255, 95, 31, 0.05) 1px, transparent 0);
-                background-size: 40px 40px;
+                @apply font-mono antialiased overflow-x-hidden;
+                background-color: #0A0A0A;
+                background-image: 
+                    radial-gradient(circle at 2px 2px, rgba(255, 95, 31, 0.05) 1px, transparent 0),
+                    linear-gradient(to right, rgba(255, 95, 31, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 95, 31, 0.02) 1px, transparent 1px);
+                background-size: 40px 40px, 100px 100px, 100px 100px;
+            }
+            /* Scanline Overlay */
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+                            linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+                background-size: 100% 4px, 3px 100%;
+                pointer-events: none;
+                z-index: 100;
+                opacity: 0.3;
             }
         }
         @layer components {
             .sp-card {
-                @apply bg-[#0A0A0A]/80 border border-ngn-orange/20 rounded-lg p-8 backdrop-blur-xl shadow-2xl;
+                @apply bg-[#0A0A0A]/90 border border-ngn-orange/20 rounded-none p-8 backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.5)] relative;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
             }
             .btn-ngn {
-                @apply bg-ngn-orange text-ngn-charcoal px-6 py-3 font-bold uppercase tracking-tighter transition-all duration-200 hover:shadow-[0_0_20px_rgba(255,95,31,0.4)] hover:scale-[1.02] active:scale-95 text-center;
+                @apply bg-ngn-orange text-ngn-charcoal px-6 py-3 font-bold uppercase tracking-tighter transition-all duration-200 hover:shadow-[0_0_30px_rgba(255,95,31,0.6)] hover:scale-[1.02] active:scale-95 text-center relative overflow-hidden;
+                clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
             }
             .nav-link {
-                @apply text-xs uppercase tracking-widest text-white/60 hover:text-ngn-orange transition-colors;
+                @apply text-[10px] uppercase tracking-[0.3em] text-white/40 hover:text-ngn-orange transition-colors flex items-center gap-2;
             }
-            .grid-overlay {
-                position: fixed;
-                inset: 0;
-                background-image: linear-gradient(to right, rgba(255,95,31,0.03) 1px, transparent 1px),
-                                  linear-gradient(to bottom, rgba(255,95,31,0.03) 1px, transparent 1px);
-                background-size: 100px 100px;
+            .hud-border {
+                position: relative;
+            }
+            .hud-border::before {
+                content: "";
+                position: absolute;
+                top: -2px; left: -2px; right: -2px; bottom: -2px;
+                border: 1px solid rgba(255, 95, 31, 0.3);
                 pointer-events: none;
-                z-index: -1;
             }
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
-    <div class="grid-overlay"></div>
+    <!-- Animated Scanline -->
+    <div class="fixed inset-0 pointer-events-none z-[101] opacity-[0.03] overflow-hidden">
+        <div class="w-full h-20 bg-gradient-to-b from-transparent via-ngn-orange to-transparent animate-scanline"></div>
+    </div>
 
-    <header class="border-b border-ngn-orange/20 bg-ngn-charcoal/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-6">
+    <header class="border-b border-ngn-orange/30 bg-ngn-charcoal/80 backdrop-blur-xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center gap-12">
                 <a href="/" class="flex items-center gap-4 group">
-                    <img src="https://nextgennoise.com/lib/images/site/2026/default-avatar.png" alt="NGN" class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
-                    <span class="text-2xl font-sans font-bold tracking-tighter text-ngn-orange">CLARITY<span class="text-white/20 ml-2 font-light">NGN</span></span>
+                    <!-- Audio Reticle SVG -->
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="group-hover:rotate-90 transition-transform duration-500">
+                        <circle cx="20" cy="20" r="18" stroke="#FF5F1F" stroke-width="0.5" stroke-dasharray="4 4"/>
+                        <path d="M20 5V10M20 30V35M5 20H10M30 20H35" stroke="#FF5F1F" stroke-width="1"/>
+                        <rect x="18" y="18" width="4" height="4" fill="#FF5F1F" class="animate-pulse"/>
+                        <path d="M12 20C12 15.5817 15.5817 12 20 12" stroke="#FF5F1F" stroke-width="0.5"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-sans font-bold tracking-tighter text-ngn-orange leading-none">CLARITY<span class="text-white ml-1">NGN</span></span>
+                        <span class="text-[8px] uppercase tracking-[0.5em] text-white/20 font-mono mt-1 italic">Tactical Mixing HUD // v1.0.4</span>
+                    </div>
                 </a>
-                <nav class="hidden md:flex gap-6 ml-4">
-                    <a href="/docs" class="nav-link <?php echo $requestUri === '/docs' ? 'text-ngn-orange' : ''; ?>">Documentation</a>
-                    <a href="/purchase" class="nav-link <?php echo $requestUri === '/purchase' ? 'text-ngn-orange' : ''; ?>">Purchase</a>
+                
+                <nav class="hidden lg:flex gap-10 items-center">
+                    <a href="/docs" class="nav-link <?php echo $route == 'docs' ? 'text-ngn-orange' : ''; ?>">
+                        <span class="w-1.5 h-1.5 rounded-full border border-ngn-orange/40"></span>
+                        Knowledge_DB
+                    </a>
+                    <a href="/purchase" class="nav-link <?php echo $route == 'purchase' ? 'text-ngn-orange' : ''; ?>">
+                        <span class="w-1.5 h-1.5 rounded-full border border-ngn-orange/40"></span>
+                        Acquisition_Core
+                    </a>
                 </nav>
             </div>
-            <div class="flex items-center gap-4">
-                <a href="/login" class="text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors">Beacon Login</a>
-                <a href="/purchase" class="btn-ngn text-[10px] py-2 px-4">Initialize License</a>
+
+            <div class="flex items-center gap-8 font-mono">
+                <div class="hidden md:flex flex-col items-end">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[8px] uppercase tracking-widest text-white/20">Fleet_Sync</span>
+                        <span class="text-[10px] text-ngn-orange animate-pulse">PRESSURIZED</span>
+                    </div>
+                    <div class="text-[10px] text-white/10 uppercase tracking-[0.2em]">Ping: 12ms // Spark_Node: 01</div>
+                </div>
+                <div class="h-10 w-px bg-white/10"></div>
+                <a href="/purchase" class="btn-ngn text-[10px] py-3 px-8 group">
+                    <span class="relative z-10">INITIALIZE_MISSION</span>
+                    <div class="absolute inset-0 bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Tech Sub-header -->
+        <div class="bg-ngn-orange/5 border-t border-ngn-orange/10 h-6 flex items-center">
+            <div class="max-w-7xl mx-auto px-6 w-full flex justify-between text-[7px] uppercase tracking-[0.4em] text-ngn-orange/40 font-bold italic">
+                <span>// Neural_Engine: Online</span>
+                <span>// Inference_Target: Set</span>
+                <span>// Session_Integrity: Verified</span>
             </div>
         </div>
     </header>
