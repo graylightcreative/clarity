@@ -34,12 +34,25 @@ class Assets
     }
 
     /**
-     * Returns the CLARITY emblem SVG.
+     * Returns the CLARITY horizontal logo SVG.
      */
-    public static function getEmblem(string $class = 'text-ngn-blue'): string
+    public static function getLogo(string $class = 'h-8'): string
     {
-        $file = self::ASSET_PATH . 'LOGOSET1_EMBLEM.svg';
+        $file = self::ASSET_PATH . 'LOGOSET1_LOGO-COMBO-HORIZONTAL.svg';
         if (!file_exists($file)) return '';
+        
+        $svg = file_get_contents($file);
+        $svg = preg_replace('/<\?xml.*\?>/i', '', $svg);
+        return str_replace('<svg ', '<svg class="' . $class . '" ', $svg);
+    }
+
+    /**
+     * Returns a generic SVG from the assets/images directory.
+     */
+    public static function getSVG(string $filename, string $class = ''): string
+    {
+        $file = self::ASSET_PATH . $filename;
+        if (!file_exists($file)) return "<!-- SVG $filename not found -->";
         
         $svg = file_get_contents($file);
         $svg = preg_replace('/<\?xml.*\?>/i', '', $svg);

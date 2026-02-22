@@ -55,20 +55,29 @@
             .nav-link {
                 @apply text-[10px] uppercase tracking-[0.3em] text-white/40 hover:text-ngn-blue transition-all duration-300;
             }
-            /* Neon SVG Utility (Transforms Black SVGs to Neon) */
+            /* Neon SVG Utility (Transforms Black SVGs to Neon Gradients) */
             .icon-neon-blue {
-                @apply text-ngn-blue;
-                filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+                filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.4));
             }
-            .icon-neon-blue path, .icon-neon-blue g {
-                fill: currentColor !important;
+            .icon-neon-blue path, .icon-neon-blue g, .icon-neon-blue circle, .icon-neon-blue rect {
+                fill: url(#grad-blue) !important;
             }
             .icon-neon-purple {
-                @apply text-ngn-purple;
-                filter: drop-shadow(0 0 8px rgba(157, 80, 187, 0.6));
+                filter: drop-shadow(0 0 8px rgba(157, 80, 187, 0.4));
             }
-            .icon-neon-purple path, .icon-neon-purple g {
-                fill: currentColor !important;
+            .icon-neon-purple path, .icon-neon-purple g, .icon-neon-purple circle, .icon-neon-purple rect {
+                fill: url(#grad-purple) !important;
+            }
+            .icon-neon-orange {
+                filter: drop-shadow(0 0 8px rgba(255, 95, 31, 0.4));
+            }
+            .icon-neon-orange path, .icon-neon-orange g, .icon-neon-orange circle, .icon-neon-orange rect {
+                fill: url(#grad-orange) !important;
+            }
+            /* Special case for Header Logo */
+            .logo-gradient path, .logo-gradient g {
+                fill: url(#grad-blue-purple) !important;
+                filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
             }
             .vst-panel {
                 @apply border-t-2 border-ngn-blue/50 bg-[#111] relative overflow-hidden;
@@ -78,18 +87,35 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
+    <!-- SVG Gradients Definition -->
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <defs>
+            <linearGradient id="grad-blue" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#00D2FF;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#0088AA;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="grad-purple" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#9D50BB;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#6E48AA;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="grad-orange" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF5F1F;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#E64A19;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="grad-blue-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00D2FF;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#9D50BB;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
     <!-- Header -->
     <header class="border-b border-white/5 bg-black/80 backdrop-blur-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
             <div class="flex items-center gap-12">
                 <a href="/" class="flex items-center gap-4 group">
-                    <div class="relative">
-                        <div class="absolute -inset-2 bg-ngn-blue/20 blur-lg rounded-full group-hover:bg-ngn-blue/40 transition-all"></div>
-                        <img src="https://nextgennoise.com/lib/images/site/2026/default-avatar.png" alt="NGN" class="w-8 h-8 relative brightness-125">
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-xl md:text-2xl font-sans font-bold tracking-tighter text-white leading-none">NGN <span class="text-ngn-blue">CLARITY</span></span>
-                        <span class="text-[7px] uppercase tracking-[0.5em] text-white/20 font-mono mt-1 italic">Professional Mixing Assistant</span>
+                    <div class="relative h-8 md:h-10">
+                        <?php echo \Clarity\Core\Assets::getLogo('h-full logo-gradient transition-all duration-500'); ?>
                     </div>
                 </a>
                 
@@ -101,6 +127,11 @@
             </div>
 
             <div class="flex items-center gap-4 md:gap-8 font-mono">
+                <div class="hidden lg:flex gap-4">
+                    <div class="w-1 h-8 bg-ngn-blue/20"></div>
+                    <div class="w-1 h-8 bg-ngn-purple/20"></div>
+                    <div class="w-1 h-8 bg-ngn-orange/20"></div>
+                </div>
                 <a href="/login" class="nav-link hidden md:block">User_Login</a>
                 <a href="/purchase" class="btn-glow-blue text-[9px] md:text-[10px] py-2 md:py-3 px-4 md:px-8">
                     GET STARTED FREE
