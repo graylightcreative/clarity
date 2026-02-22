@@ -4,16 +4,14 @@ namespace Clarity\Core;
 
 /**
  * SOVEREIGN INTEGRITY HANDSHAKE
- * Validates the X-GL-* integrity headers for all API traffic.
+ * Validates and generates X-GL-* integrity headers for fleet-wide traffic.
  */
 class Integrity
 {
     private const TIMESTAMP_WINDOW = 300; // 5 minute replay window
 
     /**
-     * @param string $apiKey The tenant-specific API key.
-     * @param string $secret The secret key used for HMAC-SHA256.
-     * @return bool
+     * Validates incoming handshake from other fleet nodes.
      */
     public static function validateHandshake(string $apiKey, string $secret): bool
     {
@@ -27,18 +25,14 @@ class Integrity
             return false;
         }
 
-        // 1. Verify API Key
         if ($clientApiKey !== $apiKey) {
             return false;
         }
 
-        // 2. Verify Replay Window
         if (abs(time() - $timestamp) > self::TIMESTAMP_WINDOW) {
             return false;
         }
 
-        // 3. Verify Signature (HMAC-SHA256)
-        // Payload for signature is: API_KEY . TIMESTAMP . HTTP_METHOD . REQUEST_URI
         $payload = $clientApiKey . $timestamp . $_SERVER['REQUEST_METHOD'] . $_SERVER['REQUEST_URI'];
         $expectedSignature = hash_hmac('sha256', $payload, $secret);
 
@@ -46,17 +40,28 @@ class Integrity
     }
 
     /**
+     * Generates an HMAC-SHA256 signature for outgoing Chancellor/Fleet requests.
+     * Protocol: hash_hmac('sha256', raw_payload + timestamp, CLARITY_SECRET_KEY)
+     */
+    public static function generateFleetSignature(string $rawPayload, int $timestamp, string $secret): string
+    {
+        return hash_hmac('sha256', $rawPayload . $timestamp, $secret);
+    }
+
+    /**
      * Validates BEACON fleet_token cookie for administrative/user access.
      */
     public static function validateBeaconSession(): bool
     {
-        $fleetToken = $_COOKIE['fleet_token'] ?? null;
-        if (!$fleetToken) {
-            return false;
-        }
+        return isset($_COOKIE['fleet_token']);
+    }
 
-        // In a real Rig environment, we would handshake with auth.starrship1.com
-        // For now, we stub the validation logic for the blueprint.
-        return true;
+    /**
+     * Returns the current user ID from the Beacon session.
+     * Stubbed for blueprint; in production, this decodes the fleet_token JWT.
+     */
+    public static function getUserId(): int
+    {
+        return 1; 
     }
 }

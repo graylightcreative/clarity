@@ -86,7 +86,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="btn-ngn block w-full text-center text-xl py-6 tracking-[-0.05em]">Initialize Founder Acquisition</a>
+                <a href="/purchase/initialize" class="btn-ngn block w-full text-center text-xl py-6 tracking-[-0.05em] uppercase italic">Initialize Founder Acquisition</a>
                 
                 <div class="mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div class="flex items-center gap-4">

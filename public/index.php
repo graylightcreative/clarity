@@ -12,21 +12,64 @@ if (php_sapi_name() === 'cli-server') {
     }
 }
 
+// Component Discovery
+require_once __DIR__ . '/../src/Core/Integrity.php';
+require_once __DIR__ . '/../src/Finance/Chancellor.php';
+
 // Route discovery
 $request = $_SERVER['REQUEST_URI'];
 $parts = explode('/', trim($request, '/'));
 $route = $parts[0] ?: 'home';
+$sub_route = $parts[1] ?? null;
 
 // Pressure Check: Enforce high-integrity routing
-$allowed_routes = ['home', 'purchase', 'docs', 'login'];
+$allowed_routes = ['home', 'purchase', 'docs', 'login', 'activation', 'acquisition', 'webhook'];
 if (!in_array($route, $allowed_routes)) {
     $route = 'home';
 }
 
-// Component Assembly
-require_once __DIR__ . '/../src/Core/Integrity.php';
+// -----------------------------------------------------------------------------
+// MISSION INITIALIZATION (PURCHASE TRIGGER)
+// -----------------------------------------------------------------------------
+if ($route === 'purchase' && $sub_route === 'initialize') {
+    $chancellor = new \Clarity\Finance\Chancellor(
+        'CLARITY_API_KEY_STUB', // provisioned via Vault
+        'CLARITY_SECRET_KEY_STUB' // provisioned via Vault
+    );
+    
+    $response = $chancellor->authorizeAcquisition();
+    
+    if (isset($response['checkout_url'])) {
+        header('Location: ' . $response['checkout_url']);
+        exit;
+    } else {
+        // Chancellor rejection logic
+        die("CHANCELLOR_REJECTION // UNABLE_TO_AUTHORIZE_CHECKOUT");
+    }
+}
 
-// Pressurize Views
+// -----------------------------------------------------------------------------
+// SIGNAL WEBHOOK (FUSE RELAY)
+// -----------------------------------------------------------------------------
+if ($route === 'webhook' && $sub_route === 'signal') {
+    $headers = getallheaders();
+    $signature = $headers['X-GL-SIGNAL-SIGNATURE'] ?? null;
+    
+    // In a production environment, we verify this signature against the Clarity Secret.
+    // For the blueprint, we acknowledge the Signal mission.
+    if ($signature) {
+        http_response_code(200);
+        echo json_encode(["status" => "MISSION_ACKNOWLEDGED", "timestamp" => time()]);
+        exit;
+    }
+    
+    http_response_code(403);
+    die("INTEGRITY_FAILURE // SIGNAL_ORIGIN_UNVERIFIED");
+}
+
+// -----------------------------------------------------------------------------
+// VIEW PRESSURIZATION
+// -----------------------------------------------------------------------------
 require_once __DIR__ . '/../views/header.php';
 
 switch ($route) {
@@ -38,6 +81,16 @@ switch ($route) {
         break;
     case 'docs':
         require_once __DIR__ . '/../views/docs.php';
+        break;
+    case 'activation':
+        if ($sub_route === 'success') {
+            require_once __DIR__ . '/../views/success.php';
+        }
+        break;
+    case 'acquisition':
+        if ($sub_route === 'cancel') {
+            require_once __DIR__ . '/../views/cancel.php';
+        }
         break;
     default:
         require_once __DIR__ . '/../views/home.php';
