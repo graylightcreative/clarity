@@ -12,7 +12,7 @@ class Chancellor
 {
     private string $apiKey;
     private string $secretKey;
-    private const CHANCELLOR_URL = 'https://auth.starrship1.com:443/v1/chancellor/authorize-checkout';
+    private const CHANCELLOR_URL = 'https://graylightcreative.com/v1/chancellor/authorize-checkout';
 
     public function __construct(string $apiKey, string $secretKey)
     {
