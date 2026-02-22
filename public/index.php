@@ -33,8 +33,8 @@ if (!in_array($route, $allowed_routes)) {
 // -----------------------------------------------------------------------------
 if ($route === 'purchase' && $sub_route === 'initialize') {
     $chancellor = new \Clarity\Finance\Chancellor(
-        'CLARITY_API_KEY_STUB', // provisioned via Vault
-        'CLARITY_SECRET_KEY_STUB' // provisioned via Vault
+        'gl_pub_ngn20_2026_z9q', // Authorized NGN API Key
+        'gl_sec_f8d2e9a1b7c3d4e5f6a7b8c9d0e1f2a3' // Authorized HMAC Secret
     );
     
     $response = $chancellor->authorizeAcquisition();
