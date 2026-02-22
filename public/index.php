@@ -14,6 +14,7 @@ if (php_sapi_name() === 'cli-server') {
 
 // Component Discovery
 require_once __DIR__ . '/../src/Core/Integrity.php';
+require_once __DIR__ . '/../src/Core/Assets.php';
 require_once __DIR__ . '/../src/Finance/Chancellor.php';
 
 // Route discovery
