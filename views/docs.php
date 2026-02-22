@@ -25,12 +25,99 @@
         <!-- Documentation Content -->
         <article class="md:col-span-3 space-y-32 pb-60">
             
-            <!-- (Existing sections 00-04...) -->
-            <section id="mentor-mission" class="scroll-mt-32 opacity-20">
-                <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">00 // The Mission</h2>
+            <!-- The Mission -->
+            <section id="mentor-mission" class="scroll-mt-32">
+                <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono italic">00</span>
+                    The Mission: <span class="text-ngn-orange">Education via Analysis.</span>
+                </h2>
+                <div class="text-white/70 leading-relaxed font-light space-y-6 text-lg">
+                    <p>NGN Clarity is not a "magic button" plugin. It is an AI-powered **Mixing Mentor** designed to bridge the gap between amateur results and professional clarity. </p>
+                    <p>Unlike automated mixing tools that hide their logic, Clarity visualizes the delta between your audio and world-class reference targets, teaching you the "Why" behind every move.</p>
+                </div>
             </section>
-            <!-- (Skipping to new section 05 for brevity in write_file call, I should actually read and update the whole file to ensure section IDs match sidebar) -->
-            
+
+            <!-- AI Intelligence -->
+            <section id="how-it-works" class="scroll-mt-32">
+                <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono italic">01</span>
+                    AI Intelligence: <span class="text-ngn-orange">The Neural Ear.</span>
+                </h2>
+                <div class="text-white/70 leading-relaxed font-light space-y-6">
+                    <p>At the heart of Clarity is a specialized neural network trained on over 50,000 professional stems across every major genre. </p>
+                    <p>The plugin performs a real-time, multi-dimensional analysis of your track's frequency response, dynamic range, and harmonic content. It then compares this data to high-integrity **Inference Targets**—idealized sonic profiles for specific instruments.</p>
+                    <div class="sp-card bg-white/[0.02] border-white/5">
+                        <h4 class="text-xs uppercase tracking-widest text-ngn-orange mb-4 font-mono font-bold">Local Power: No Cloud Lag</h4>
+                        <p class="text-sm text-white/40">100% of the AI analysis is performed locally on your hardware. Your audio never leaves your DAW. Zero latency. Professional performance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Prescription -->
+            <section id="the-prescription" class="scroll-mt-32">
+                <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono italic">02</span>
+                    The Prescription: <span class="text-ngn-orange">Stock-Plugin Mastery.</span>
+                </h2>
+                <div class="text-white/70 leading-relaxed font-light space-y-6">
+                    <p>Once the analysis is complete, the Mentor issues a **Prescription**. This is a prioritized list of sonic corrections tailored specifically to your track.</p>
+                    <p>The Mentor teaches you how to execute these corrections using **DAW Stock Plugins**. By mastering EQ, Compression, and Saturation on the tools you already own, you build skills that transcend any specific piece of gear.</p>
+                </div>
+            </section>
+
+            <!-- Sovereign Link -->
+            <section id="sovereign-link" class="scroll-mt-32">
+                <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono italic">03</span>
+                    Sovereign Link: <span class="text-ngn-orange">The Desktop Gateway.</span>
+                </h2>
+                <div class="text-white/70 leading-relaxed font-light space-y-8">
+                    <p>The **Sovereign Link** is the dedicated companion application for Windows and macOS. It handles all background synchronization, ensuring your VST engine is always pressurized without requiring complex configuration.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-white/[0.02] border border-white/5 rounded-lg">
+                            <h4 class="text-ngn-orange text-xs uppercase tracking-[0.2em] mb-4 font-bold">Activation</h4>
+                            <p class="text-sm text-white/40">Simply log in with your credentials to authorize your workstation. The Link manages your license seat automatically in the background.</p>
+                        </div>
+                        <div class="p-6 bg-white/[0.02] border border-white/5 rounded-lg">
+                            <h4 class="text-ngn-orange text-xs uppercase tracking-[0.2em] mb-4 font-bold">AI Updates</h4>
+                            <p class="text-sm text-white/40">The Link automatically synchronizes the latest AI models and inference targets, ensuring your Mentor's intelligence is always current.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workflow -->
+            <section id="workflow" class="scroll-mt-32">
+                <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
+                    <span class="text-ngn-orange/20 text-6xl block mb-2 font-mono italic">04</span>
+                    Mixing Workflow: <span class="text-ngn-orange">The Path to Clarity.</span>
+                </h2>
+                <div class="space-y-12">
+                    <div class="flex items-start gap-8">
+                        <div class="w-12 h-12 rounded bg-ngn-orange text-ngn-charcoal flex items-center justify-center font-bold font-mono shrink-0">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Connect Sovereign Link</h4>
+                            <p class="text-white/40 font-light">Launch the Link app and log in to authorize your seat.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-8">
+                        <div class="w-12 h-12 rounded bg-ngn-orange text-ngn-charcoal flex items-center justify-center font-bold font-mono shrink-0">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Analyze Track</h4>
+                            <p class="text-white/40 font-light">Open the Clarity VST in your DAW, select a target, and capture 5 seconds of audio.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-8">
+                        <div class="w-12 h-12 rounded bg-ngn-orange text-ngn-charcoal flex items-center justify-center font-bold font-mono shrink-0">03</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Execute & Learn</h4>
+                            <p class="text-white/40 font-light">Follow the Mentor's visual guide and apply the fixes using your stock plugins.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- SECTION 05: THE SPARK ECONOMY -->
             <section id="spark-economy" class="scroll-mt-32">
                 <h2 class="text-4xl font-sans font-bold tracking-tight mb-8">
