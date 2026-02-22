@@ -1,0 +1,62 @@
+:root {
+    --electric-orange: #FF5F1F;
+    --deep-charcoal: #0A0A0A;
+    --glass-background: rgba(10, 10, 10, 0.85);
+    --glass-border: rgba(255, 95, 31, 0.2);
+    --text-primary: #FFFFFF;
+    --text-secondary: #BBBBBB;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background: var(--deep-charcoal);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255, 95, 31, 0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.sp-card {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 2rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.btn-primary {
+    background: var(--electric-orange);
+    color: var(--deep-charcoal);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 15px var(--electric-orange);
+    transform: scale(1.02);
+}
+
+header {
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--electric-orange);
+    letter-spacing: -1px;
+}
