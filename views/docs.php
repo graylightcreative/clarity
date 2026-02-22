@@ -1,50 +1,94 @@
-<main class="flex-grow max-w-5xl mx-auto px-6 py-20 w-full">
+<main class="flex-grow max-w-7xl mx-auto px-6 py-20 w-full">
     <div class="mb-16">
-        <h1 class="text-4xl md:text-6xl font-sans font-bold tracking-tighter mb-4">INTEGRATION <span class="text-ngn-orange">PROTOCOLS.</span></h1>
+        <h1 class="text-4xl md:text-6xl font-sans font-bold tracking-tighter mb-4 uppercase italic">INTEGRATION <span class="text-ngn-orange">PROTOCOLS.</span></h1>
         <p class="text-white/60 text-lg font-light">The technical bible for the NGN Clarity ecosystem.</p>
     </div>
 
     <div class="grid md:grid-cols-4 gap-12">
         <!-- Sidebar Navigation -->
-        <aside class="md:col-span-1 space-y-4 text-xs uppercase tracking-widest text-white/40">
-            <a href="#" class="block text-ngn-orange font-bold">Quick Start</a>
-            <a href="#" class="block hover:text-white transition-colors">AI Inference Engine</a>
-            <a href="#" class="block hover:text-white transition-colors">Licensing & Auth</a>
-            <a href="#" class="block hover:text-white transition-colors">Fleet Synchronicity</a>
-            <a href="#" class="block hover:text-white transition-colors">Telemetry Ingest</a>
+        <aside class="md:col-span-1">
+            <div class="sticky top-32 space-y-6 text-[10px] uppercase tracking-[0.2em] text-white/40">
+                <div class="text-white/20 mb-4 tracking-[0.4em]">Sections</div>
+                <a href="#quick-start" class="block hover:text-ngn-orange transition-colors">01 // Quick Start</a>
+                <a href="#ai-engine" class="block hover:text-ngn-orange transition-colors">02 // AI Inference</a>
+                <a href="#licensing" class="block hover:text-ngn-orange transition-colors">03 // Licensing & Auth</a>
+                <a href="#fleet" class="block hover:text-ngn-orange transition-colors">04 // Fleet Sync</a>
+                <a href="#telemetry" class="block hover:text-ngn-orange transition-colors">05 // Telemetry Ingest</a>
+            </div>
         </aside>
 
         <!-- Documentation Content -->
-        <article class="md:col-span-3 prose prose-invert prose-orange max-w-none">
-            <section class="mb-16">
-                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6">Introduction to <span class="text-ngn-orange">NGN Clarity</span></h2>
-                <p class="text-white/60 leading-relaxed text-lg font-light mb-8">
-                    NGN Clarity is a sovereign VST3 plugin designed to analyze mixing tracks against AI-learned targets and teach users how to fix issues using DAW stock plugins.
-                </p>
-                <div class="sp-card bg-ngn-orange/5 border-ngn-orange/20">
-                    <h4 class="text-ngn-orange font-bold mb-4 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                        Sovereign Integrity
-                    </h4>
-                    <p class="text-sm text-white/60 leading-relaxed">
-                        All NGN Clarity nodes must adhere to the 90/10 Ledger mandate and use Beacon SSO for identity management. No local user tables are permitted.
-                    </p>
+        <article class="md:col-span-3 space-y-24 pb-40">
+            <!-- Quick Start -->
+            <section id="quick-start" class="scroll-mt-32">
+                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
+                    <span class="text-ngn-orange/20 text-5xl">01</span>
+                    Quick Start
+                </h2>
+                <div class="text-white/60 leading-relaxed font-light space-y-4">
+                    <p>To initialize a new Clarity NGN node, you must first synchronize with the Graylight Foundry master repository.</p>
+                    <div class="bg-black/40 p-6 border border-white/5 rounded font-mono text-xs text-ngn-orange">
+                        nexus create-site clarity.nextgennoise.com<br>
+                        nexus fleet-deploy
+                    </div>
                 </div>
             </section>
 
-            <section class="mb-16">
-                <h2 class="text-2xl font-sans font-bold tracking-tight mb-6">AI Inference Pipeline</h2>
-                <div class="bg-white/5 p-6 border border-white/5 rounded">
-                    <pre class="text-xs text-ngn-orange"><code>
-// Example Pulse Telemetry Ingest
-{
-  "hardware_id_hash": "e3b0c442...",
-  "cpu_usage_avg": 45.2,
-  "daw_name": "Studio One",
-  "active_instrument_target": "drums",
-  "timestamp": "2026-02-21T22:30:00Z"
-}
-                    </code></pre>
+            <!-- AI Inference -->
+            <section id="ai-engine" class="scroll-mt-32">
+                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
+                    <span class="text-ngn-orange/20 text-5xl">02</span>
+                    AI Inference Engine
+                </h2>
+                <p class="text-white/60 leading-relaxed font-light mb-6">
+                    The NGN core utilizes local ONNX Runtime inference to analyze audio signals in real-time. This eliminates cloud latency and ensures data sovereignty.
+                </p>
+                <div class="sp-card border-ngn-orange/20">
+                    <h4 class="text-xs uppercase tracking-widest text-ngn-orange mb-4">Model Specs</h4>
+                    <ul class="text-xs space-y-2 text-white/40 uppercase tracking-widest">
+                        <li>- Format: ONNX v1.18</li>
+                        <li>- Precision: Float32</li>
+                        <li>- Target: CPU / CoreML / DirectML</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Licensing -->
+            <section id="licensing" class="scroll-mt-32">
+                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
+                    <span class="text-ngn-orange/20 text-5xl">03</span>
+                    Licensing & Auth
+                </h2>
+                <p class="text-white/60 leading-relaxed font-light mb-6">
+                    Authentication is strictly handled via Beacon SSO. Every request must be signed with an HMAC-SHA256 signature using the Founder's Secret Key.
+                </p>
+                <div class="bg-black/40 p-6 border border-white/5 rounded font-mono text-xs text-white/30">
+                    X-GL-SIGNATURE: hash_hmac('sha256', payload, secret)
+                </div>
+            </section>
+
+            <!-- Fleet Sync -->
+            <section id="fleet" class="scroll-mt-32">
+                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
+                    <span class="text-ngn-orange/20 text-5xl">04</span>
+                    Fleet Synchronicity
+                </h2>
+                <p class="text-white/60 leading-relaxed font-light">
+                    The Sovereign Fleet consists of 21 specialized nodes. All nodes are atomically synchronized via the Nexus orchestrator. No local overrides are permitted in production environments.
+                </p>
+            </section>
+
+            <!-- Telemetry -->
+            <section id="telemetry" class="scroll-mt-32">
+                <h2 class="text-3xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
+                    <span class="text-ngn-orange/20 text-5xl">05</span>
+                    Telemetry Ingest
+                </h2>
+                <p class="text-white/60 leading-relaxed font-light mb-8">
+                    Anonymized usage data is ingested by the Pulse node every 15 minutes to improve the A-OS brain.
+                </p>
+                <div class="bg-black/40 p-6 border border-white/5 rounded font-mono text-xs text-ngn-orange">
+                    POST https://pulse.graylightcreative.com/ingest
                 </div>
             </section>
         </article>
