@@ -33,7 +33,7 @@ if (!in_array($route, $allowed_routes)) {
 // -----------------------------------------------------------------------------
 if ($route === 'purchase' && $sub_route === 'initialize') {
     // Mission Check: User must be logged in via BEACON
-    if (!Integrity::validateBeaconSession()) {
+    if (!\Clarity\Core\Integrity::validateBeaconSession()) {
         header('Location: https://beacon.graylightcreative.com/auth?redirect=https://clarity.nextgennoise.com/purchase/initialize');
         exit;
     }
