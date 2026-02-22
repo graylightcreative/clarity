@@ -41,7 +41,6 @@ class Integrity
 
     /**
      * Generates an HMAC-SHA256 signature for outgoing Chancellor/Fleet requests.
-     * Protocol: hash_hmac('sha256', raw_payload + timestamp, CLARITY_SECRET_KEY)
      */
     public static function generateFleetSignature(string $rawPayload, int $timestamp, string $secret): string
     {
@@ -49,19 +48,35 @@ class Integrity
     }
 
     /**
-     * Validates BEACON fleet_token cookie for administrative/user access.
+     * Validates BEACON fleet_token and handles cross-domain token capture.
      */
     public static function validateBeaconSession(): bool
     {
+        // 1. Capture token from URL (returned from Beacon redirect)
+        if (isset($_GET['fleet_token'])) {
+            $token = preg_replace('/[^a-zA-Z0-9\._\-]/', '', $_GET['fleet_token']);
+            setcookie('fleet_token', $token, [
+                'expires' => time() + 86400 * 30, // 30 day persistence
+                'path' => '/',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]);
+            $_COOKIE['fleet_token'] = $token; // Pressurize immediate session
+            return true;
+        }
+
+        // 2. Validate existing cookie
         return isset($_COOKIE['fleet_token']);
     }
 
     /**
      * Returns the current user ID from the Beacon session.
-     * Stubbed for blueprint; in production, this decodes the fleet_token JWT.
+     * In a production Rig, this decodes the fleet_token JWT.
      */
     public static function getUserId(): int
     {
+        // Stubbed for blueprint; in production, this extracts 'sub' from the JWT.
         return 1; 
     }
 }
