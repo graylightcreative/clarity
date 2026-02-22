@@ -77,12 +77,13 @@ class Chancellor
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
         curl_close($ch);
 
         if ($httpCode !== 200) {
             return [
                 "success" => false,
-                "error" => "CHANCELLOR_REJECTION // HTTP_CODE: " . $httpCode,
+                "error" => "CHANCELLOR_REJECTION // HTTP_CODE: " . $httpCode . " // CURL_ERR: " . $curlError,
                 "raw" => $response
             ];
         }
