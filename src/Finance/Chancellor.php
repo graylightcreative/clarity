@@ -51,7 +51,7 @@ class Chancellor
             ]
         ];
 
-        $rawPayload = json_encode($payload);
+        $rawPayload = json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         $signature = Integrity::generateFleetSignature($rawPayload, $timestamp, $this->secretKey);
 
         $headers = [

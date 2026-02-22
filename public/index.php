@@ -43,8 +43,10 @@ if ($route === 'purchase' && $sub_route === 'initialize') {
         header('Location: ' . $response['checkout_url']);
         exit;
     } else {
-        // Chancellor rejection logic
-        die("CHANCELLOR_REJECTION // UNABLE_TO_AUTHORIZE_CHECKOUT");
+        // Chancellor rejection logic with debug feedback
+        $error_msg = $response['error'] ?? 'UNKNOWN_REJECTION';
+        $raw_feedback = isset($response['raw']) ? base64_encode($response['raw']) : 'NO_RAW_FEEDBACK';
+        die("CHANCELLOR_REJECTION // " . $error_msg . " // FEEDBACK_HASH: " . $raw_feedback);
     }
 }
 
