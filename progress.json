@@ -1984,6 +1984,52 @@
       ]
     },
     {
+      "id": "PHASE_WEB",
+      "name": "The Hub (Marketing & Licensing Site)",
+      "description": "Deploy the standalone Clarity hub for marketing, downloads, and licensing API",
+      "status": "active",
+      "priority": "critical",
+      "estimatedWeeks": 2,
+      "tasks": [
+        {
+          "id": "WEB_001",
+          "name": "Standalone Webroot Provisioning",
+          "description": "Initialize the standalone public/index.php hub",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_001_A",
+              "name": "Create standalone /public/index.php",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_001_B",
+              "name": "Align .env with starrship1.com loopback",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "WEB_002",
+          "name": "Licensing API Bridge",
+          "description": "Implement the API endpoints for VST license activation",
+          "status": "pending",
+          "subtasks": [
+            {
+              "id": "WEB_002_A",
+              "name": "Implement /v1/activate endpoint",
+              "status": "pending"
+            },
+            {
+              "id": "WEB_002_B",
+              "name": "Integrate with Beacon for user validation",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "PHASE_2A",
       "name": "Licensing Integration (VST Plugin)",
       "description": "Implement license validation, trial management, and activation system",
