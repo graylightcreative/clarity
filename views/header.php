@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $pageTitle ?? 'CLARITY NGN // THE MIXING MENTOR'; ?></title>
+    <link rel="icon" type="image/png" href="https://nextgennoise.com/lib/images/site/2026/default-avatar.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,9 +60,12 @@
 
     <header class="border-b border-ngn-orange/20 bg-ngn-charcoal/50 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-8">
-                <a href="/" class="text-2xl font-sans font-bold tracking-tighter text-ngn-orange">CLARITY<span class="text-white/20 ml-2 font-light">NGN</span></a>
-                <nav class="hidden md:flex gap-6">
+            <div class="flex items-center gap-6">
+                <a href="/" class="flex items-center gap-4 group">
+                    <img src="https://nextgennoise.com/lib/images/site/2026/default-avatar.png" alt="NGN" class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <span class="text-2xl font-sans font-bold tracking-tighter text-ngn-orange">CLARITY<span class="text-white/20 ml-2 font-light">NGN</span></span>
+                </a>
+                <nav class="hidden md:flex gap-6 ml-4">
                     <a href="/docs" class="nav-link <?php echo $requestUri === '/docs' ? 'text-ngn-orange' : ''; ?>">Documentation</a>
                     <a href="/purchase" class="nav-link <?php echo $requestUri === '/purchase' ? 'text-ngn-orange' : ''; ?>">Purchase</a>
                 </nav>
