@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>CLARITY NGN // <?php echo strtoupper($route ?: 'THE MIXING MENTOR'); ?></title>
-    <link rel="icon" type="image/png" href="https://nextgennoise.com/lib/images/site/2026/default-avatar.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,10 +74,9 @@
             .icon-neon-orange path, .icon-neon-orange g, .icon-neon-orange circle, .icon-neon-orange rect {
                 fill: url(#grad-orange) !important;
             }
-            /* Special case for Header Logo */
-            .logo-gradient path, .logo-gradient g {
-                fill: url(#grad-blue-purple) !important;
-                filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
+            /* Special case for Header Logo (Sharp & Solid) */
+            .logo-solid-blue path, .logo-solid-blue g {
+                fill: #00D2FF !important;
             }
             .vst-panel {
                 @apply border-t-2 border-ngn-blue/50 bg-[#111] relative overflow-hidden;
@@ -115,7 +114,7 @@
             <div class="flex items-center gap-12">
                 <a href="/" class="flex items-center gap-4 group">
                     <div class="relative h-8 md:h-10">
-                        <?php echo \Clarity\Core\Assets::getLogo('h-full logo-gradient transition-all duration-500'); ?>
+                        <?php echo \Clarity\Core\Assets::getLogo('h-full logo-solid-blue transition-opacity duration-300 hover:opacity-80'); ?>
                     </div>
                 </a>
                 

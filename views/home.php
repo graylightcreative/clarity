@@ -96,7 +96,7 @@
                 foreach($targets as $t): ?>
                 <div class="sp-card group hover:border-ngn-blue/50 transition-all duration-500 cursor-pointer">
                     <div class="h-20 w-20 mx-auto mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
-                        <?php echo Assets::getIcon($t['id']); ?>
+                        <?php echo Assets::getIcon($t['id'], 'icon-neon-purple'); ?>
                     </div>
                     <div class="text-center">
                         <div class="text-[9px] font-mono tracking-[0.3em] text-white/40 group-hover:text-ngn-blue transition-colors"><?php echo $t['label']; ?></div>
@@ -109,6 +109,6 @@
 
     <!-- Background Decoration -->
     <div class="absolute top-0 right-0 w-[800px] h-[800px] -translate-y-1/2 translate-x-1/4 opacity-10 pointer-events-none -z-10">
-        <?php echo Assets::getEmblem('text-white w-full h-full'); ?>
+        <?php echo Assets::getEmblem('logo-solid-blue w-full h-full'); ?>
     </div>
 </main>
