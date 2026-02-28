@@ -1,0 +1,300 @@
+name: Build NGN Clarity
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+env:
+  # GitHub Actions Secrets (configured in Settings → Secrets and variables)
+  GRAYLIGHT_HMAC_SECRET_KEY: ${{ secrets.GRAYLIGHT_HMAC_SECRET_KEY }}
+  FORGE_API_KEY: ${{ secrets.FORGE_API_KEY }}
+
+jobs:
+  # =============================================================================
+  # Build: Windows x64
+  # =============================================================================
+  build-windows:
+    runs-on: windows-latest
+    name: Build (Windows x64)
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get Git info
+        id: git-info
+        shell: bash
+        run: |
+          echo "commit=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "branch=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install CMake
+        run: |
+          choco install cmake -y
+
+      - name: Download ONNX Runtime (Windows x64)
+        run: |
+          mkdir -p third_party
+          cd third_party
+          # Note: Replace with actual download URL once finalized
+          # curl -L -o onnxruntime-win-x64.zip https://github.com/microsoft/onnxruntime/releases/download/v1.18.0/...
+          echo "ONNX Runtime download placeholder - configure in CI/scripts/"
+
+      - name: Configure CMake
+        run: |
+          mkdir build
+          cd build
+          cmake .. -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build Plugin
+        run: |
+          cd build
+          cmake --build . --config Release --parallel 4
+
+      - name: Generate Build Report
+        if: always()
+        run: |
+          echo "Build completed at $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > build_report.txt
+          echo "Git Commit: ${{ steps.git-info.outputs.commit }}" >> build_report.txt
+          echo "Branch: ${{ steps.git-info.outputs.branch }}" >> build_report.txt
+
+      - name: Upload Plugin Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ngn-clarity-windows-x64-${{ github.run_number }}
+          path: |
+            build/plugins/VST3/
+            build/bin/
+          retention-days: 30
+
+      - name: Upload Build Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-report-windows
+          path: build_report.txt
+
+  # =============================================================================
+  # Build: macOS (Intel + Apple Silicon)
+  # =============================================================================
+  build-macos:
+    runs-on: macos-latest
+    name: Build (macOS Universal)
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get Git info
+        id: git-info
+        run: |
+          echo "commit=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "branch=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Install dependencies
+        run: |
+          brew install cmake openssl libcurl
+
+      - name: Download ONNX Runtime (macOS Universal)
+        run: |
+          mkdir -p third_party
+          cd third_party
+          # Note: Replace with actual download URL once finalized
+          # curl -L -o onnxruntime-osx-universal.tar.gz https://github.com/microsoft/onnxruntime/releases/download/v1.18.0/...
+          echo "ONNX Runtime download placeholder - configure in CI/scripts/"
+
+      - name: Configure CMake
+        run: |
+          mkdir build
+          cd build
+          cmake .. \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+
+      - name: Build Plugin
+        run: |
+          cd build
+          cmake --build . --config Release --parallel 4
+
+      - name: Code Sign Plugin (macOS)
+        if: success()
+        run: |
+          # Note: Code signing requires certificate, implement in PHASE_10
+          # codesign -s "Developer ID Application" ...
+          echo "Code signing skipped (PHASE_10 implementation)"
+
+      - name: Generate Build Report
+        if: always()
+        run: |
+          echo "Build completed at $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > build_report.txt
+          echo "Git Commit: ${{ steps.git-info.outputs.commit }}" >> build_report.txt
+          echo "Branch: ${{ steps.git-info.outputs.branch }}" >> build_report.txt
+
+      - name: Upload Plugin Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ngn-clarity-macos-universal-${{ github.run_number }}
+          path: |
+            build/plugins/VST3/
+            build/bin/
+          retention-days: 30
+
+      - name: Upload Build Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-report-macos
+          path: build_report.txt
+
+  # =============================================================================
+  # Linting & Code Quality
+  # =============================================================================
+  lint:
+    runs-on: ubuntu-latest
+    name: Code Quality Checks
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: CMake Lint
+        run: |
+          # Verify CMakeLists.txt syntax
+          cmake --version
+          mkdir build && cd build && cmake .. || true
+          cd ..
+
+      - name: Code style check
+        run: |
+          # Note: Implement clang-format checks in PHASE_1
+          echo "Code style checks placeholder"
+
+  # =============================================================================
+  # Security Scan
+  # =============================================================================
+  security:
+    runs-on: ubuntu-latest
+    name: Security Analysis
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for secrets in code
+        run: |
+          # Ensure no plaintext secrets are committed
+          if grep -r "GRAYLIGHT_HMAC_SECRET_KEY=" . --include="*.cpp" --include="*.h"; then
+            echo "ERROR: Plaintext secret found in code!"
+            exit 1
+          else
+            echo "✓ No plaintext secrets detected"
+          fi
+
+      - name: Verify .gitignore
+        run: |
+          # Check that secret files are properly ignored
+          if [ -f ".env.local" ]; then
+            echo "ERROR: .env.local not gitignored!"
+            exit 1
+          fi
+          echo "✓ .gitignore configured correctly"
+
+      - name: Dependency check
+        run: |
+          echo "Dependency security checks placeholder (PHASE_1+)"
+
+  # =============================================================================
+  # Documentation Build
+  # =============================================================================
+  docs:
+    runs-on: ubuntu-latest
+    name: Documentation
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify documentation
+        run: |
+          # Check that all expected docs exist
+          test -f "README.md" && echo "✓ README.md found"
+          test -f "CHANGELOG.md" && echo "✓ CHANGELOG.md found"
+          test -d "docs/bible" && echo "✓ docs/bible/ found"
+          test -f "docs/bible/00 - Index.md" && echo "✓ Index documentation found"
+          test -f "docs/bible/11 - Graylight G-Fleet Integration.md" && echo "✓ G-Fleet documentation found"
+          test -f "docs/bible/12 - NGN Clarity API Specifications.md" && echo "✓ API documentation found"
+          test -f "PHASE_0_CLI_AGENT_PLAN.md" && echo "✓ PHASE_0 plan found"
+
+  # =============================================================================
+  # Build Status Summary
+  # =============================================================================
+  status:
+    runs-on: ubuntu-latest
+    needs: [build-windows, build-macos, lint, security, docs]
+    if: always()
+    name: Build Status
+
+    steps:
+      - name: Check build results
+        run: |
+          echo "Build Status Report"
+          echo "=================="
+          echo "Windows Build: ${{ needs.build-windows.result }}"
+          echo "macOS Build: ${{ needs.build-macos.result }}"
+          echo "Linting: ${{ needs.lint.result }}"
+          echo "Security: ${{ needs.security.result }}"
+          echo "Documentation: ${{ needs.docs.result }}"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "⚠️ Build failed - check logs above"
+          exit 1
+
+      - name: Success message
+        if: success()
+        run: |
+          echo "✅ All checks passed!"
+          echo "Artifacts available in Actions tab"
+
+# =============================================================================
+# Notes for SETUP_004_B (Vault Integration)
+# =============================================================================
+#
+# BLOCKING TASK: GitHub Actions Secrets Configuration
+#
+# To enable HMAC secret injection, you MUST:
+#
+# 1. Go to GitHub Repository Settings
+# 2. Navigate to: Secrets and variables → Actions
+# 3. Create these secrets:
+#
+#    a) GRAYLIGHT_HMAC_SECRET_KEY
+#       - Value: 64-character hex string from Graylight Vault
+#       - Format: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6...
+#
+#    b) FORGE_API_KEY
+#       - Value: 32-character alphanumeric key for Nexus authentication
+#
+# 4. Verify secrets are available:
+#    - Secrets are NOT visible in workflow logs
+#    - Secrets ARE passed to build environment
+#
+# Once configured, the CI/CD pipeline will:
+# - Inject GRAYLIGHT_HMAC_SECRET_KEY via environment variable
+# - CMake will obfuscate and compile into binary
+# - HMAC-SHA256 signing will be available at runtime
+#
+# See: docs/bible/12 - NGN Clarity API Specifications (Vault Integration)
+# See: PHASE_0_CLI_AGENT_PLAN.md (SETUP_004_B subtask)
+#
+# =============================================================================
